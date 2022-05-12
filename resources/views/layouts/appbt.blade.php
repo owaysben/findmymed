@@ -11,10 +11,10 @@
     <title>@yield('title', 'Findmymed')</title>
 
     <!-- Scripts -->
-    <!-- <script src="{{ asset('js/mdb.min.js') }}" defer></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
+    <script src="{{ asset('js/mdb.min.js') }}" defer></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script> -->
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
     <script>
         mapboxgl.accessToken = 'pk.eyJ1IjoiZGVwcmEiLCJhIjoiY2t0Znh2OGY2MGN1cjJ1bnU0aWo5NW1tZCJ9.GEC5KcxUjIVdLsxMQ31rZA';
@@ -30,11 +30,11 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <!-- <link href="{{ asset('css/mdb.min.css') }}" rel="stylesheet"> -->
+    <link href="{{ asset('css/mdb.min.css') }}" rel="stylesheet">
     {{-- <link href="{{ asset('css/mdb.dark.min.css') }}" rel="stylesheet"> --}}
     {{-- <link href="{{ asset('css/mdb.dark.rtl.min.css') }}" rel="stylesheet"> --}}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
 </head>
 
 <body>
