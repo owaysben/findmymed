@@ -11,7 +11,7 @@
     <title>@yield('title', 'Findmymed')</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/mdb.min.js') }}" defer></script>
+    <!-- <script src="{{ asset('js/mdb.min.js') }}" defer></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
@@ -30,7 +30,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/mdb.min.css') }}" rel="stylesheet">
+    <!-- <link href="{{ asset('css/mdb.min.css') }}" rel="stylesheet"> -->
     {{-- <link href="{{ asset('css/mdb.dark.min.css') }}" rel="stylesheet"> --}}
     {{-- <link href="{{ asset('css/mdb.dark.rtl.min.css') }}" rel="stylesheet"> --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
