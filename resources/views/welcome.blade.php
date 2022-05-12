@@ -80,7 +80,7 @@
                         </button>
                     @endguest
                 </div>
-                <img class="img-fluid w-50 d-none d-sm-block" src="#" alt="GPS">
+                <img class="img-fluid w-50 d-none d-sm-block" src="{{ asset('images/ph2.jpg') }}" alt="GPS">
             </div>
         </div>
     </section>
@@ -163,7 +163,7 @@
             <div class="row align-items-center 
         justify-content-between">
                 <div class="col-md ">
-                    <img src="D:\What i need\web\images\ph2.jpg" class="img-fluid" alt="#">
+                    <img src="{{ asset('images/ph3.jpg') }}" class="img-fluid" alt="#">
                 </div>
                 <div class="col-md p-5">
                     <h2>Pourquoi Find My Med</h2>
@@ -207,7 +207,7 @@
                         Lire la suite </a>
                 </div>
                 <div class="col-md ">
-                    <img src="D:\What i need\web\images\ph3.jpg" class="img-fluid" alt="#">
+                    <img src="{{ asset('images/ph2.jpg') }}" class="img-fluid" alt="#">
                 </div>
             </div>
         </div>
