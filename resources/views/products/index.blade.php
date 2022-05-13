@@ -6,8 +6,7 @@
             <div class="d-md-flex justify-content-between align-items-center">
                 <h3 class="mb-3">Trouvez la pharmacie qui vous covient le plus</h3>
                 <div class="input-group news-input">
-                    <input type="text" class="form-control" placeholder="Entrez le nom d'un medicament">
-                    <button class="btn btn-dark btn-lg" type="button">Rechercher</button>
+                    @include('partials.search')
                 </div>
             </div>
         </div>

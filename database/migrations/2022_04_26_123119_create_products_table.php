@@ -19,6 +19,8 @@ class CreateProductsTable extends Migration
             $table->text('description');
             $table->double('price');
             $table->integer('category_id');
+            $table->string('forme');
+            $table->string('voie');
         });
     }
 

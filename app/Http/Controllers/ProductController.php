@@ -15,8 +15,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
-        $products = Product::/*where("name", "%LIKE%", request()->input('q')?? "")->*/paginate(12);
+        $q = request()->input('q');
+        $products = Product::where('name', 'like', "$q")->paginate(12);
+        var_dump($products['items']);
+        dd($products);
         return view('products.index', [
             'products' => $products
         ]);

@@ -12,6 +12,9 @@ class Product extends Model
         'name',
         'price',
         'description',
+        'price',
+        'forme',
+        'voie',
     ];
 
     protected $with = [
