@@ -50,13 +50,14 @@
                         <h5 class="mb-1">{{ $product->name }}</h5>
                         <button class="btn btn-primary btn-md justify-content-md-end"> Afficher position </button>
                     </div>
-                    <p class="mb-1">Some placeholder content in a paragraph.</p>
-                    <small class="text-muted">And some muted small print.</small>
+                    <p class="mb-1">{{ $product->description }}</p>
+                    <small class="text-muted">voie {{ $product->voie }}</small>
                 </a>
             @endforeach
 
-            {{ $products->links() }}
+
 
         </div>
+        {{ $products->appends($_GET)->links() }}
     </section>
 @endsection

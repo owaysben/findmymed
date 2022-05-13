@@ -35,5 +35,3 @@ Route::group(['middleware' => ['auth', 'role:user']], function () {
 require __DIR__ . '/auth.php';
 
 Route::resource("products", App\Http\Controllers\ProductController::class);
-
-// Route::get('/results', [SearchController::class, 'index']);
