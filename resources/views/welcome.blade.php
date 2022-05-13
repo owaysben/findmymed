@@ -114,7 +114,6 @@
                                 Faites votre recherche à distance via Find My Med, économisez votre temps et trouvez vos
                                 besoins le plus tot possible
                             </p>
-                            <a href="#" class="btn btn-primary">En savoir plus</a>
                         </div>
                     </div>
                 </div>
@@ -131,7 +130,6 @@
                                 avec
                                 un seul click
                             </p>
-                            <a href="#" class="btn btn-dark">En savoir plus</a>
                         </div>
                     </div>
                 </div>
@@ -148,7 +146,6 @@
                                 pharmacie
                                 que vous choisissez
                             </p>
-                            <a href="#" class="btn btn-primary">En savoir plus</a>
                         </div>
                     </div>
                 </div>
@@ -160,7 +157,7 @@
     <!--learn-->
     <section class="p-5" id="learn">
         <div class="container">
-            <div class="row align-items-center 
+            <div class="row align-items-center
         justify-content-between">
                 <div class="col-md ">
                     <img src="{{ asset('images/ph3.jpg') }}" class="img-fluid" alt="#">
@@ -190,7 +187,7 @@
     <!--react-->
     <section class="p-5 bg-dark text-light" id="react">
         <div class="container">
-            <div class="row align-items-center 
+            <div class="row align-items-center
         justify-content-between">
                 <div class="col-md p-5">
                     <h2>Espace pharmacies</h2>
@@ -202,9 +199,6 @@
                         élargir
                         leurs clientèle. C'est un exellent moyen de départ pour les nouvelles pharmacies.
                     </p>
-                    <a href="#" class="btn btn-light m-3">
-                        <i class="bi bi-chevron-right"></i>
-                        Lire la suite </a>
                 </div>
                 <div class="col-md ">
                     <img src="{{ asset('images/ph2.jpg') }}" class="img-fluid" alt="#">
