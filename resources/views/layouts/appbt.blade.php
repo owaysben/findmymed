@@ -42,7 +42,7 @@
         <header>
             @include('layouts.header')
         </header>
-
+heloo
         <main>
             @yield('content')
         </main>

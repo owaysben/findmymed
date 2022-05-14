@@ -1,67 +1,7 @@
 @extends('layouts.appbt')
 
 @section('content')
-    <!--Modal-->
-    <div class="modal" id="enroll" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Inscrivez-vous à Find My Med</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p class="lead">Veuillez remplir les champs suivants</p>
-                    <form>
-                        <div class="mb-3">
-                            <label for="prenom" class="col-form-label">
-                                Prénom:
-                            </label>
-                            <input type="text" name="prenom" class="form-control" id="prenom">
-                        </div>
-                        <div class="mb-3">
-                            <label for="nom" class="col-form-label">
-                                Nom:
-                            </label>
-                            <input type="text" name="Nom" class="form-control" id="Nom">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="col-form-label">
-                                Email:
-                            </label>
-                            <input type="text" name="email" class="form-control" id="email">
-                        </div>
-                        <div class="mb-3">
-                            <label for="tel" class="col-form-label">
-                                Téléphone:
-                            </label>
-                            <input type="text" name="tel" class="form-control" id="tel">
-                        </div>
-                        <div class="mb-3">
-                            <label for="choice" class="col-form-label">
-                                S'inscrire au tant que:
-                            </label>
-                            <div class="form-check mb-3">
-                                <input class="form-check-input" type="radio" name="choicePharma" id="choicePharma">
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                    Pharmacien
-                                </label>
-                            </div>
-                            <div class="form-check mb-3">
-                                <input class="form-check-input" type="radio" name="choiceClient" id="choiceClient" checked>
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Utilisateur par défaut
-                                </label>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                    <button type="button" class="btn btn-primary">Envoyer</button>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
     <!--Showcase-->
     <section class="bg-dark text-light p-5 pt-lg-2 text-center text-sm-start">
