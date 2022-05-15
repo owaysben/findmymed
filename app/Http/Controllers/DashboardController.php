@@ -14,7 +14,7 @@ class DashboardController extends Controller
         if (Auth::user()->hasRole('user')) {
             return view('user.dash');
         } elseif (Auth::user()->hasRole('pharmacy')) {
-            return view('pharmacy.dash');
+            return view('pharmacy.profile');
         }
     }
 

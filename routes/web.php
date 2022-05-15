@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\SearchController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,17 +19,17 @@ Route::get('/', [HomeController::class, 'index'])->name('house');
 
 //auth route for both
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])
+    Route::get('/dashboard', [DashboardController::class, 'index'])
         ->name('dashboard');
 });
 // For profiles
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/dashboard/myprofile', 'App\Http\Controllers\DashboardController@profile')
+    Route::get('/dashboard/myprofile', [DashboardController::class, 'profile'])
         ->name('dashboard.profile');
 });
 //route for orders
 Route::group(['middleware' => ['auth', 'role:user']], function () {
-    Route::get('/dashboard/myorders', 'App\Http\Controllers\DashboardController@orders')
+    Route::get('/dashboard/myorders', [DashboardController::class, 'orders'])
         ->name('dashboard.orders');
 });
 require __DIR__ . '/auth.php';
