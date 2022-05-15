@@ -51,19 +51,23 @@
         </div>
     </div>
 </nav> --}}
-<!--Navbar-->
-<nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3">
+ {{--Navbar
+<!--<nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3">
     <div class="container">
-      <a href="/" class="navbar-brand"> Find My Med</a>
-    <button class="navbar-toggler" type="button"
-    data-bs-toggle="collapse" data-bs-target="#navmenu">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="#navmenu">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a href="/" class="nav-link">A propos</a>
-        </li>
+      <a href="#" class="navbar-brand"> Find My Med</a>
+        <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navmenu">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="#navmenu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                <a href="/" class="nav-link">A propos</a>
+                </li>
         @guest
            @if (Route::has('login'))
               <li class="nav-item">
@@ -76,7 +80,7 @@
               <a class="nav-link" href="{{ route('register') }}">S'inscrire</a>
               </li>
            @endif
-        @else  
+        @else
         <li class="nav-item dropdown">
             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                 {{ Auth::user()->name }}
@@ -94,8 +98,46 @@
                 </form>
             </div>
         </li>
+
         @endguest
-      </ul>
+        </ul>
+        </div>
     </div>
+  </nav>--}}
+
+   <!-- Navbar -->
+   <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
+    <div class="container">
+      <a href="#" class="navbar-brand">Find My Med</a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navmenu"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a href="#learn" class="nav-link">A propos</a>
+          </li>
+          @guest
+          @if (Route::has('login'))
+            <li class="nav-item">
+            <a href="{{ route('login') }}" class="nav-link">Se connecter</a>
+            </li>
+          @endif
+
+          @if (Route::has('register'))
+            <li class="nav-item">
+            <a href="{{ route('register') }}" class="nav-link">S'inscrire</a>
+            </li>
+            @endif
+        @endguest
+        </ul>
+      </div>
     </div>
   </nav>

@@ -20,7 +20,9 @@
                         </button>
                     @endguest
                 </div>
-                <img class="img-fluid w-50 d-none d-sm-block" src="{{ asset('images/ph2.jpg') }}" alt="GPS">
+                <img class="img-fluid w-50 d-none d-sm-block" src="{{ asset('images/ph2.jpg') }}" alt="logo">
+
+
             </div>
         </div>
     </section>
@@ -30,9 +32,11 @@
         <div class="container">
             <div class="d-md-flex justify-content-between align-items-center">
                 <h3 class="mb-3">Commencez votre recherche</h3>
-                <div class="input-group news-input">
+               <!-- <div class="input-group news-input">-->
+                    <!--This div should be in the partials section-->
                     @include('partials.search')
-                </div>
+
+                <!--</div>-->
             </div>
         </div>
     </section>
@@ -99,7 +103,7 @@
             <div class="row align-items-center
         justify-content-between">
                 <div class="col-md ">
-                    <img src="{{ asset('images/ph3.jpg') }}" class="img-fluid" alt="#">
+                    <img src="{{ asset('images/ph2.jpg') }}" class="img-fluid" alt="#">
                 </div>
                 <div class="col-md p-5">
                     <h2>Pourquoi Find My Med</h2>
@@ -140,7 +144,7 @@
                     </p>
                 </div>
                 <div class="col-md ">
-                    <img src="{{ asset('images/ph2.jpg') }}" class="img-fluid" alt="#">
+                    <img src="{{ asset('images/ph3.jpg') }}" class="img-fluid" alt="#">
                 </div>
             </div>
         </div>
