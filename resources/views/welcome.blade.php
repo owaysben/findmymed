@@ -2,7 +2,7 @@
 
 @section('content')
     <!--Modal-->
-    <div class="modal" id="enroll" tabindex="-1">
+    {{-- <div class="modal" id="enroll" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -61,7 +61,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <!--Showcase-->
     <section class="bg-dark text-light p-5 pt-lg-2 text-center text-sm-start">
@@ -75,9 +75,9 @@
                         l'outil de la géolocalisation
                     </p>
                     @guest
-                        <button class="btn btn-primary btn-large" data-bs-toggle="modal" data-bs-target="#enroll">
-                            Inscrivez vous ici
-                        </button>
+                        <a class="btn btn-primary btn-large" {{-- data-bs-toggle="modal" data-bs-target="#enroll" --}} href="{{ route('register') }}">
+                            Inscrivez-vous ici
+                        </a>
                     @endguest
                 </div>
                 <img class="img-fluid w-50 d-none d-sm-block" src="{{ asset('images/ph2.jpg') }}" alt="GPS">
