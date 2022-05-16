@@ -1,35 +1,7 @@
 @extends('layouts.appbt')
 @section('content')
-    @include('layouts.header')
-    <!--Navbar-->
-    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3">
-        <div class="container">
-            <a href="{{ route('house') }}" class="navbar-brand"> Find My Med</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="#navmenu">
-                <ul class="navbar-nav ms-auto">
-
-                    <li class="nav-item">
-                        <a href="#modify" class="nav-link" data-bs-toggle="modal" data-bs-target="#modify">Modifier
-                            le profile</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#notifs" class="nav-link" data-bs-toggle="modal"
-                            data-bs-target="#notifs">Notifications <span class="badge bg-secondary">4</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#Logout" class="nav-link" data-bs-toggle="modal" data-bs-target="#logout">
-                            Deconnecter</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
     <!--Main container. Everything must be contained within a top-level container.-->
-    <div class="container-fluid">
+    <div class="container-fluid py-5">
 
         <!--First row (only row)-->
         <div class="row extra_margin ">
@@ -39,7 +11,6 @@
 
                 <div class="card" style="md-4 sm-12 xs-12 bg-primary">
 
-                    <!-- <img src="https://via.placeholder.com/100/" class="card-img-top img-thumbnail" alt="#profilepic"> -->
                     <div class="card-body">
                         <h5 class="card-title">#UserName</h5>
 
@@ -49,23 +20,14 @@
                             <p>Tel: <span style="font-weight: 2; "> +213 541610841 </span></p>
                         </li>
                         <li class="list-group-item">
-                            <p>Email: <span style="font-weight: 2;">pharma@gmail.com</span></p>
+                            <p>Email: <span style="font-weight: 2;">user@gmail.com</span></p>
                         </li>
-                        <li class="list-group-item">
-                            <button class="btn btn-sm"><a href="#" class="LinkedIn"><i
-                                        class="bi bi-linkedin"></i></a></button>
-                            <button class="btn btn-sm"><a href="#" class="Facebook"><i
-                                        class="bi bi-facebook"></i></a></button>
-                            <button class="btn btn-sm"><a href="#" class="Instagram"><i
-                                        class="bi bi-instagram"></i></a></button>
-
+                        <li class="list-group-item ">
+                            <a href="#" class="btn btn-success text-light">
+                                Modifier mon profile
+                            </a>
                         </li>
                     </ul>
-                    <div class="card-body">
-                        <button class="btn btn-primary btn-md text-light"><a href="#" class="card-link text-light">Voir
-                                ma pharmacie</a></button>
-                        <!-- <a href="#" class="card-link">another link</a>-->
-                    </div>
                 </div>
 
             </div> <!-- End Col 1 -->
@@ -118,9 +80,6 @@
                             <p class="card-text">Vous pouvez mettre à jour votre stock à tout moment.</p>
                             <a href="#" class="btn btn-primary">Consulter</a>
                         </div>
-                        <div class="card-footer text-muted">
-                            Consulté il ya 2h
-                        </div>
                     </div>
                 </section>
 
@@ -129,5 +88,4 @@
         </div> <!-- End row 1 -->
 
     </div> <!-- End main container -->
-    @include('layouts.footer')
 @endsection

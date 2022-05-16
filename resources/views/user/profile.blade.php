@@ -72,20 +72,6 @@
                         </div>
                     </div>
                 </section>
-                <!-- <section>
-                                                                                                    <div class="card text-center md-10 ">
-
-                                                                                                        <div class="card-body">
-                                                                                                            <h5 class="card-title">Voir mon stock</h5>
-                                                                                                            <p class="card-text">Vous pouvez mettre à jour votre stock à tout moment.</p>
-                                                                                                            <a href="#" class="btn btn-primary">Consulter</a>
-                                                                                                        </div>
-                                                                                                        <div class="card-footer text-muted">
-                                                                                                            Consulté il ya 2h
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </section> -->
-
             </div> <!-- End column 2 -->
 
         </div> <!-- End row 1 -->

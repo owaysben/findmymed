@@ -34,7 +34,7 @@ Route::group(['middleware' => ['auth', 'role:user']], function () {
 });
 //route for stock
 Route::group(['middleware' => ['auth', 'role:pharmacy']], function () {
-    Route::get('/dashboard/myorders', 'App\Http\Controllers\DashboardController@stock')
+    Route::get('/dashboard/stock', [DashboardController::class, 'stock'])
         ->name('dashboard.stock');
 });
 

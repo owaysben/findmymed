@@ -32,10 +32,10 @@ class DashboardController extends Controller
             return view('user.orders');
         }
     }
-    public function stock(){
-        if(Auth::user()->hasRole('pharmacy')){
+    public function stock()
+    {
+        if (Auth::user()->hasRole('pharmacy')) {
             return view('pharmacy.stock');
         }
-
     }
 }
