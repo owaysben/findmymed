@@ -1,5 +1,5 @@
 <!--Footer-->
-<footer class="py-4 bg-dark text-white text-center position-relative">
+<footer class="py-5 bg-dark text-white text-center position-relative">
     <div class="container">
         <p class="lead">Copyright &copy; 2022 Find My Med </p>
         <a href="#" class="position-absolute bottom-0 end-0 p-5">

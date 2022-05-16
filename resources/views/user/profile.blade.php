@@ -1,32 +1,5 @@
 @extends('layouts.appbt')
 @section('content')
-    <!--Navbar-->
-    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3">
-        <div class="container">
-            <a href="{{ route('house') }}" class="navbar-brand"> Find My Med</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="#navmenu">
-                <ul class="navbar-nav ms-auto">
-
-                    <li class="nav-item">
-                        <a href="#modify" class="nav-link" data-bs-toggle="modal" data-bs-target="#modify">Modifier
-                            le profile</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#notifs" class="nav-link" data-bs-toggle="modal"
-                            data-bs-target="#notifs">Notifications <span class="badge bg-secondary">4</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#Logout" class="nav-link" data-bs-toggle="modal" data-bs-target="#logout">
-                            Deconnecter</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
     <!--Main container. Everything must be contained within a top-level container.-->
     <div class="container-fluid py-5">
 
@@ -38,7 +11,6 @@
 
                 <div class="card" style="md-4 sm-12 xs-12 bg-primary">
 
-                    <!-- <img src="https://via.placeholder.com/100/" class="card-img-top img-thumbnail" alt="#profilepic"> -->
                     <div class="card-body">
                         <h5 class="card-title">#UserName</h5>
 
@@ -101,18 +73,18 @@
                     </div>
                 </section>
                 <!-- <section>
-                                                                                            <div class="card text-center md-10 ">
+                                                                                                    <div class="card text-center md-10 ">
 
-                                                                                                <div class="card-body">
-                                                                                                    <h5 class="card-title">Voir mon stock</h5>
-                                                                                                    <p class="card-text">Vous pouvez mettre à jour votre stock à tout moment.</p>
-                                                                                                    <a href="#" class="btn btn-primary">Consulter</a>
-                                                                                                </div>
-                                                                                                <div class="card-footer text-muted">
-                                                                                                    Consulté il ya 2h
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </section> -->
+                                                                                                        <div class="card-body">
+                                                                                                            <h5 class="card-title">Voir mon stock</h5>
+                                                                                                            <p class="card-text">Vous pouvez mettre à jour votre stock à tout moment.</p>
+                                                                                                            <a href="#" class="btn btn-primary">Consulter</a>
+                                                                                                        </div>
+                                                                                                        <div class="card-footer text-muted">
+                                                                                                            Consulté il ya 2h
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </section> -->
 
             </div> <!-- End column 2 -->
 
