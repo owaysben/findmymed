@@ -31,6 +31,7 @@
             </style>
         </div>
     </section>
+    <div id="map"></div>
 {{ $product->name }}
 @endsection
 @section('content')
@@ -42,6 +43,8 @@
     @endforeach
     <script>
         var product = JSON.decode("{{ $product->toJSON() }}");
-        alert(product);
+
+
+
     </script>
 @endsection
