@@ -1,20 +1,6 @@
-<!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-
-<head>
-    <meta charset="UTF_8">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="D:/web/CSS projects/bootstrapp.css" type="text/css">
-    <script src="{{ asset('js/mdb.min.js') }}" defer></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <link href="{{ asset('css/mdb.min.css') }}" rel="stylesheet">
-
-    <title> Profile </title>
-</head>
-
-<body>
+@extends('layouts.appbt')
+@section('content')
+    @include('layouts.header')
     <!--Navbar-->
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3">
         <div class="container">
@@ -53,7 +39,7 @@
 
                 <div class="card" style="md-4 sm-12 xs-12 bg-primary">
 
-                    <img src="https://via.placeholder.com/100/" class="card-img-top img-thumbnail" alt="#profilepic">
+                    <!-- <img src="https://via.placeholder.com/100/" class="card-img-top img-thumbnail" alt="#profilepic"> -->
                     <div class="card-body">
                         <h5 class="card-title">#UserName</h5>
 
@@ -143,18 +129,5 @@
         </div> <!-- End row 1 -->
 
     </div> <!-- End main container -->
-    <!--Footer-->
-    <footer class="p-5 bg-dark text-white text-center position-relative">
-        <div class="container">
-            <p class="lead">Copyright &copy; 2022 Find My Med </p>
-            <a href="#" class="position-absolute bottom-0 end-0 p-5">
-                <i class="bi bi-arrow-up-circle h1"></i>
-            </a>
-        </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
-</body>
-
-</html>
+    @include('layouts.footer')
+@endsection
