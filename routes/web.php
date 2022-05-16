@@ -32,6 +32,16 @@ Route::group(['middleware' => ['auth', 'role:user']], function () {
     Route::get('/dashboard/myorders', 'App\Http\Controllers\DashboardController@orders')
         ->name('dashboard.orders');
 });
+//route for stock
+Route::group(['middleware' => ['auth', 'role:pharmacy']], function () {
+    Route::get('/dashboard/myorders', 'App\Http\Controllers\DashboardController@stock')
+        ->name('dashboard.stock');
+});
+
+
+
+
+
 require __DIR__ . '/auth.php';
 
 Route::resource("products", App\Http\Controllers\ProductController::class);
