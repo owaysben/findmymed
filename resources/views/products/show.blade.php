@@ -41,7 +41,7 @@
         <hr>
     @endforeach
     <script>
-        var product = JSON.decode("{{{ $product->quantities }}}");
+        var product = JSON.decode("{{ $product->toJSON() }}");
         alert(product);
     </script>
 @endsection
