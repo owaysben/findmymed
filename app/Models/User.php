@@ -15,7 +15,9 @@ class User extends Authenticatable
 
     use HasApiTokens, HasFactory, LaratrustUserTrait, Notifiable;
 
+    protected $table = 'users';
 
+    protected $primaryKey = 'id';
     /**
      * The attributes that are mass assignable.
      *
