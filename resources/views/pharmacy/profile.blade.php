@@ -12,15 +12,15 @@
                 <div class="card" style="md-4 sm-12 xs-12 bg-primary">
 
                     <div class="card-body">
-                        <h5 class="card-title">#UserName</h5>
+                        <h5 class="card-title">{{ Auth::user()->name }}</h5>
 
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">
-                            <p>Tel: <span style="font-weight: 2; "> +213 541610841 </span></p>
+                            <p>Tel: <span style="font-weight: 2; ">{{ Auth::user()->number }}</span></p>
                         </li>
                         <li class="list-group-item">
-                            <p>Email: <span style="font-weight: 2;">user@gmail.com</span></p>
+                            <p>Email: <span style="font-weight: 2;">{{ Auth::user()->email }}</span></p>
                         </li>
                         <li class="list-group-item ">
                             <a href="#" class="btn btn-success text-light">

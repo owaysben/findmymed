@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Livewire\User\UserEditProfileComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,7 @@ Route::group(['middleware' => ['auth']], function () {
 });
 // For profiles
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/dashboard/myprofile', [DashboardController::class, 'profile'])
+    Route::get('/dashboard/profile', [DashboardController::class, 'profile'])
         ->name('dashboard.profile');
 });
 //route for orders
@@ -36,6 +37,10 @@ Route::group(['middleware' => ['auth', 'role:user']], function () {
 Route::group(['middleware' => ['auth', 'role:pharmacy']], function () {
     Route::get('/dashboard/stock', [DashboardController::class, 'stock'])
         ->name('dashboard.stock');
+});
+
+Route::group(['middleware' => ['auth', 'role:user']], function () {
+    Route::get('/profile/edit', [UserEditProfileComponent::class])->name('user.editprofile');
 });
 
 
