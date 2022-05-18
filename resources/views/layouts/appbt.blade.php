@@ -17,7 +17,7 @@
     </script>
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <script>
+    {{-- <script>
         mapboxgl.accessToken = 'pk.eyJ1IjoiZGVwcmEiLCJhIjoiY2t0Znh2OGY2MGN1cjJ1bnU0aWo5NW1tZCJ9.GEC5KcxUjIVdLsxMQ31rZA';
         var map = new mapboxgl.Map({
             container: 'map',
@@ -25,7 +25,7 @@
             center: [-71.060982, 42.35725],
             zoom: 18
         })
-    </script>
+    </script> --}}
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">

@@ -40,10 +40,34 @@
         <h3>{{ $quantity->pharmacy->name }}</h3>
         <h5>{{ $quantity->pharmacy->latitude }} : {{ $quantity->pharmacy->longitude }}</h5>
         <hr>
-    @endforeach
-    <script>
-        var product = JSON.decode("{{ $product->toJSON() }}");
+        <header id="floating-panel"> <b>Mode of Travel: </b>
+            <div style="display: flex; position: fixed;inset: 0;z-index: 999;">
 
+    <div id="map" style="width: 100%;height: 100%;"></div>
+            </div>
+
+    @endforeach
+
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdrWuM--TmAD1Tmtg0V2MjBzpvPy6DZyg&callback=initMap&v=weekly"
+      defer
+    ></script>
+    <script>
+function initMap() {
+  const myLatLng = { lat: -25.363, lng: 131.044 };
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 4,
+    center: myLatLng,
+  });
+
+  new google.maps.Marker({
+    position: myLatLng,
+    map,
+    title: "Hello World!",
+  });
+}
+
+window.initMap = initMap;
 
 
     </script>
