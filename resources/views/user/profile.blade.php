@@ -25,7 +25,7 @@
                         </li>
                     </ul>
                     <li class="list-group-item ">
-                        <a href="#" class="btn btn-success text-light">
+                        <a href="/user/profile/edit" class="btn btn-success text-light">
                             Modifier mon profile
                         </a>
                     </li>

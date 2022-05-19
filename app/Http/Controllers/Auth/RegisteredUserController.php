@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Users\UpdateProfileRequest;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -51,5 +52,23 @@ class RegisteredUserController extends Controller
         Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);
+    }
+
+    public function edit()
+    {
+
+        return view('user.editprofile')->with('user', auth()->user());
+    }
+
+    public function update(UpdateProfileRequest $request)
+    {
+        $user = auth()->user();
+
+        $user = update([
+            'name' => $request->name,
+            'number' => $request->number
+        ]);
+        session()->flash('success', 'Utilisateur mis à jour avec succés');
+        return redirect()->back();
     }
 }

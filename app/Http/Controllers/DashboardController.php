@@ -10,12 +10,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-
-        if (Auth::user()->hasRole('user')) {
-            return view('user.profile');
-        } elseif (Auth::user()->hasRole('pharmacy')) {
-            return view('pharmacy.profile');
-        }
+        //
     }
 
     public function profile()
