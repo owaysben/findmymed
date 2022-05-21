@@ -17,13 +17,16 @@
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">
-                            <p>Tel: <span style="font-weight: 2; ">{{ Auth::user()->number }}</span></p>
+                            <p>Numéro de télephone: <span style="font-weight: 2; ">{{ Auth::user()->number }}</span></p>
                         </li>
                         <li class="list-group-item">
                             <p>Email: <span style="font-weight: 2;">{{ Auth::user()->email }}</span></p>
                         </li>
+                        <li class="list-group-item">
+                            <p>Adresse: <span style="font-weight: 2;">{{ Auth::user()->adresse }}</span></p>
+                        </li>
                         <li class="list-group-item ">
-                            <a href="#" class="btn btn-success text-light">
+                            <a href="{{ route('pharmacy.editprofile') }}" class="btn btn-success text-light">
                                 Modifier mon profile
                             </a>
                         </li>

@@ -56,19 +56,29 @@ class RegisteredUserController extends Controller
 
     public function edit()
     {
+        if (Auth::user()->hasRole('user')) {
+            return view('user.editprofile')->with('user', auth()->user());
+        } elseif (Auth::user()->hasRole('pharmacy')) {
 
-        return view('user.editprofile')->with('user', auth()->user());
+            return view('pharmacy.editprofile')->with('user', auth()->user());
+        }
     }
 
     public function update(UpdateProfileRequest $request)
     {
-        $user = auth()->user();
+        $user = User::findOrFail(auth()->user()->id);
 
-        $user = update([
-            'name' => $request->name,
-            'number' => $request->number
-        ]);
-        session()->flash('success', 'Utilisateur mis à jour avec succés');
-        return redirect()->back();
+        $user->name = $request->name;
+        $user->number = $request->number;
+        $user->adresse = $request->adresse;
+        $user->save();
+        // session()->flash('success', 'Utilisateur mis à jour avec succés');
+
+        if (Auth::user()->hasRole('user')) {
+            return redirect(route('user.profile'))->with('success', 'Profile updated!');
+        } elseif (Auth::user()->hasRole('pharmacy')) {
+
+            return redirect(route('pharmacy.profile'))->with('success', 'Profile updated!');
+        }
     }
 }

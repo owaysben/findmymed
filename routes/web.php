@@ -23,10 +23,10 @@ Route::get('/', [HomeController::class, 'index'])->name('house');
 Route::group(['middleware' => ['auth', 'role:user']], function () {
     Route::get('/user/orders', [DashboardController::class, 'orders'])
         ->name('user.orders');
-    Route::get('/user/profile/edit', [RegisteredUserController::class, 'edit'])
-        ->name('user.editprofile');
     Route::get('/user/profile', [DashboardController::class, 'profile'])
         ->name('user.profile');
+    Route::get('/user/profile/edit', [RegisteredUserController::class, 'edit'])
+        ->name('user.editprofile');
     Route::put('/user/profile', [RegisteredUserController::class, 'update'])
         ->name('user.updateprofile');
 });
@@ -40,6 +40,8 @@ Route::group(['middleware' => ['auth', 'role:pharmacy']], function () {
         ->name('pharmacy.stock');
     Route::get('/pharmacy/profile/edit', [RegisteredUserController::class, 'edit'])
         ->name('pharmacy.editprofile');
+    Route::put('/pharmacy/profile', [RegisteredUserController::class, 'update'])
+        ->name('pharmacy.updateprofile');
 });
 
 Route::resource("products", App\Http\Controllers\ProductController::class);

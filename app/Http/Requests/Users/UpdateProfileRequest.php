@@ -25,7 +25,8 @@ class UpdateProfileRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'number' => 'required'
+            'number' => 'required|min:10|max:10',
+            'adresse' => 'max:255'
         ];
     }
 }
