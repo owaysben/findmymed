@@ -26,7 +26,7 @@
                 </div> --}}
                     <div class="form-group pt-3">
                         <button type="submit" class="btn btn-primary">Confirmer</button>
-                        <a href="/user/profile" class="btn btn-secondary">Annuler</a>
+                        <a href="/pharmacy/profile" class="btn btn-secondary">Annuler</a>
                     </div>
                 </form>
             </div>

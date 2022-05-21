@@ -45,6 +45,7 @@
         </header>
 
         <main>
+            @include('partials.flashmessages')
             @yield('content')
         </main>
 
