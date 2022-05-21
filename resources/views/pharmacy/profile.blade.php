@@ -74,8 +74,8 @@
                             </div>
                         </div>
                     </div>
-                </section>
-                <section>
+
+                <div>
                     <div class="card text-center md-10 ">
 
                         <div class="card-body">
@@ -84,6 +84,7 @@
                             <a href="#" class="btn btn-primary">Consulter</a>
                         </div>
                     </div>
+                </div>
                 </section>
 
             </div> <!-- End column 2 -->
