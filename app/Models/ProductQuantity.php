@@ -8,7 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class ProductQuantity extends Model
 {
     use HasFactory;
+
+    protected $table = 'product_quantities';
+
+    protected $primaryKey = 'id';
+
     protected $fillable = ['product_id'];
+
     protected $with = [
         'pharmacy'
     ];

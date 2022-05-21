@@ -175,9 +175,7 @@
                         que l'Algerie a souffert pendant ces derniers temps tels que le manque des médicaments critiques
                         dans la plupart des pharmacies.
                     </p>
-                    <a href="#" class="btn btn-light m-3">
-                        <i class="bi bi-chevron-right"></i>
-                        Lire la suite </a>
+
                 </div>
             </div>
         </div>

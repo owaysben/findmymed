@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,31 +18,32 @@ use App\Http\Controllers\DashboardController;
 
 Route::get('/', [HomeController::class, 'index'])->name('house');
 
-//auth route for both
-Route::group(['middleware' => ['auth']], function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])
-        ->name('dashboard');
-});
-// For profiles
-Route::group(['middleware' => ['auth']], function () {
-    Route::get('/dashboard/myprofile', [DashboardController::class, 'profile'])
-        ->name('dashboard.profile');
-});
-//route for orders
+
+//route for client
 Route::group(['middleware' => ['auth', 'role:user']], function () {
-    Route::get('/dashboard/myorders', [DashboardController::class, 'orders'])
-        ->name('dashboard.orders');
+    Route::get('/user/orders', [DashboardController::class, 'orders'])
+        ->name('user.orders');
+    Route::get('/user/profile', [DashboardController::class, 'profile'])
+        ->name('user.profile');
+    Route::get('/user/profile/edit', [RegisteredUserController::class, 'edit'])
+        ->name('user.editprofile');
+    Route::put('/user/profile', [RegisteredUserController::class, 'update'])
+        ->name('user.updateprofile');
 });
-//route for stock
+
+
+//route for pharmacy
 Route::group(['middleware' => ['auth', 'role:pharmacy']], function () {
-    Route::get('/dashboard/stock', [DashboardController::class, 'stock'])
-        ->name('dashboard.stock');
+    Route::get('/pharmacy/profile', [DashboardController::class, 'profile'])
+        ->name('pharmacy.profile');
+    Route::get('/pharmacy/stock', [DashboardController::class, 'stock'])
+        ->name('pharmacy.stock');
+    Route::get('/pharmacy/profile/edit', [RegisteredUserController::class, 'edit'])
+        ->name('pharmacy.editprofile');
+    Route::put('/pharmacy/profile', [RegisteredUserController::class, 'update'])
+        ->name('pharmacy.updateprofile');
 });
-
-
-
-
-
-require __DIR__ . '/auth.php';
 
 Route::resource("products", App\Http\Controllers\ProductController::class);
+
+require __DIR__ . '/auth.php';
