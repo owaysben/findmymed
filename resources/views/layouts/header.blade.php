@@ -23,11 +23,11 @@
                         </li>
                     @endif
                 @else
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a href="#notifs" class="nav-link" data-bs-toggle="modal"
                             data-bs-target="#notifs">Notifications <span class="badge bg-secondary">4</span>
                         </a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -35,11 +35,19 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('dashboard.profile') }}">
-                                {{ __('Mon profile') }}
-                            </a>
-                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                             document.getElementById('logout-form').submit();">
+                            @role('user')
+                                <a class="dropdown-item" href="{{ route('user.profile') }}">
+                                    {{ __('Mon profile') }}
+                                </a>
+                            @endrole
+                            @role('pharmacy')
+                                <a class="dropdown-item" href="{{ route('pharmacy.profile') }}">
+                                    {{ __('Mon profile') }}
+                                </a>
+                            @endrole
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                                                             document.getElementById('logout-form').submit();">
                                 {{ __('Deconnecter') }}
                             </a>
 
