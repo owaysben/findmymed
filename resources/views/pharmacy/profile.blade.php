@@ -37,13 +37,13 @@
             <!-- Second column - for small and extra-small screens, will use whatever # cols is available -->
             <div class="col-md-8 col-sm-* col-xs-*">
 
-                <div class="container">
+                {{-- <div class="container">
                     <div class="alert alert-primary" role="alert">
                         Bienvenue #UserName vous avez 04 nouvelles notifications .
                         <a href="#" class="alert-link">Cliquez ici</a>
                         pour les voir.
                     </div>
-                </div>
+                </div> --}}
                 <section class="p-5 text-center">
                     <div class="container">
                         <div class="row text-center g-4">
@@ -75,16 +75,16 @@
                         </div>
                     </div>
 
-                <div>
-                    <div class="card text-center md-10 ">
+                    <div>
+                        <div class="card text-center md-10 ">
 
-                        <div class="card-body">
-                            <h5 class="card-title">Voir mon stock</h5>
-                            <p class="card-text">Vous pouvez mettre à jour votre stock à tout moment.</p>
-                            <a href="#" class="btn btn-primary">Consulter</a>
+                            <div class="card-body">
+                                <h5 class="card-title">Voir mon stock</h5>
+                                <p class="card-text">Vous pouvez mettre à jour votre stock à tout moment.</p>
+                                <a href="/pharmacy/stock" class="btn btn-primary">Consulter</a>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </section>
 
             </div> <!-- End column 2 -->
