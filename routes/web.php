@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProductQuantityController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 
 /*
@@ -36,7 +37,7 @@ Route::group(['middleware' => ['auth', 'role:user']], function () {
 Route::group(['middleware' => ['auth', 'role:pharmacy']], function () {
     Route::get('/pharmacy/profile', [DashboardController::class, 'profile'])
         ->name('pharmacy.profile');
-    Route::get('/pharmacy/stock', [DashboardController::class, 'stock'])
+    Route::get('/pharmacy/stock', [ProductQuantityController::class, 'index'])
         ->name('pharmacy.stock');
     Route::get('/pharmacy/profile/edit', [RegisteredUserController::class, 'edit'])
         ->name('pharmacy.editprofile');

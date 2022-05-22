@@ -1,6 +1,6 @@
 @extends('layouts.appbt')
 @section('title')
-<!--Map of the wanted pharmacie-->
+    <!--Map of the wanted pharmacie-->
     <section id="map">
         <div class="mapouter">
             <div class="gmap_canvas">
@@ -32,7 +32,7 @@
         </div>
     </section>
     <div id="map"></div>
-{{ $product->name }}
+    {{ $product->name }}
 @endsection
 @section('content')
     <!--Search Engine-->
@@ -43,32 +43,47 @@
         <header id="floating-panel"> <b>Mode of Travel: </b>
             <div style="display: flex; position: fixed;inset: 0;z-index: 999;">
 
-    <div id="map" style="width: 100%;height: 100%;"></div>
+                <div id="map" style="width: 100%;height: 100%;"></div>
             </div>
-
     @endforeach
+    <div id="map" class="map"></div>
 
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdrWuM--TmAD1Tmtg0V2MjBzpvPy6DZyg&callback=initMap&v=weekly"
-      defer
-    ></script>
+    {{-- <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdrWuM--TmAD1Tmtg0V2MjBzpvPy6DZyg&callback=initMap&v=weekly"
+        defer>
+    </script> --}}
+    {{-- <script>
+        function initMap() {
+            const myLatLng = {
+                lat: -25.363,
+                lng: 131.044
+            };
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 4,
+                center: myLatLng,
+            });
+
+            new google.maps.Marker({
+                position: myLatLng,
+                map,
+                title: "Hello World!",
+            });
+        }
+
+        window.initMap = initMap;
+    </script> --}}
     <script>
-function initMap() {
-  const myLatLng = { lat: -25.363, lng: 131.044 };
-  const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 4,
-    center: myLatLng,
-  });
-
-  new google.maps.Marker({
-    position: myLatLng,
-    map,
-    title: "Hello World!",
-  });
-}
-
-window.initMap = initMap;
-
-
+        var map = new ol.Map({
+            target: 'map',
+            layers: [
+                new ol.layer.Tile({
+                    source: new ol.source.OSM()
+                })
+            ],
+            view: new ol.View({
+                center: ol.proj.fromLonLat([36.49472, 2.86166]),
+                zoom: 13
+            })
+        });
     </script>
 @endsection

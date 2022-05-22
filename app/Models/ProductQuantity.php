@@ -13,7 +13,7 @@ class ProductQuantity extends Model
 
     protected $primaryKey = 'id';
 
-    protected $fillable = ['product_id'];
+    protected $fillable = ['prix', ''];
 
     protected $with = [
         'pharmacy'
