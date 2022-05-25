@@ -39,6 +39,11 @@ Route::group(['middleware' => ['auth', 'role:pharmacy']], function () {
         ->name('pharmacy.profile');
     Route::get('/pharmacy/stock', [ProductQuantityController::class, 'index'])
         ->name('pharmacy.stock');
+    Route::get('/pharmacy/stock/create', [ProductQuantityController::class, 'create'])
+        ->name('pharmacy.stockcreate');
+    Route::post('/pharmacy/stock', [ProductQuantityController::class, 'store'])
+        ->name('pharmacy.stockstore');
+    //Route::get('/pharmacy/stock', [ProductQuantityController::class]);
     Route::get('/pharmacy/profile/edit', [RegisteredUserController::class, 'edit'])
         ->name('pharmacy.editprofile');
     Route::put('/pharmacy/profile', [RegisteredUserController::class, 'update'])

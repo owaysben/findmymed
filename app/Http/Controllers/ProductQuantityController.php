@@ -16,11 +16,9 @@ class ProductQuantityController extends Controller
      */
     public function index()
     {
-        $quantites = ProductQuantity::all();
+        $quantities = ProductQuantity::where('pharmacy_id', auth()->user()->id);
         if (Auth::user()->hasRole('pharmacy')) {
-            return view('pharmacy.stock', [
-                'stock' => $quantities
-            ]);
+            return view('pharmacy.stock', compact('quantities'));
         }
     }
 
@@ -31,7 +29,8 @@ class ProductQuantityController extends Controller
      */
     public function create()
     {
-        //
+
+        return view('pharmacy.createstock');
     }
 
     /**
@@ -42,7 +41,18 @@ class ProductQuantityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // var_dump($request);
+        $request->validate([
+            'name' => 'required',
+            'price' => 'required',
+            'quantity' => 'required',
+        ]);
+        ProductQuantity::create([
+            'product_id' => $request->input(''),
+            // 'price' => $request->input('price'),
+            'quantity' => $request->input('quantity'),
+            'pharmacy_id' => auth()->user()->id
+        ]);
     }
 
     /**
