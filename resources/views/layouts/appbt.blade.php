@@ -39,7 +39,7 @@
     <!-- Styles -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<<<<<<< Updated upstream
+
     <!-- <link href="{{ asset('css/mdb.min.css') }}" rel="stylesheet"> -->
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/css/ol.css" type="text/css">
@@ -50,9 +50,9 @@
         }
 
     </style>
-=======
+
     <link rel="stylesheet" href="{{ asset('css/profiles.css') }}">
->>>>>>> Stashed changes
+
 </head>
 
 <body>
