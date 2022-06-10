@@ -19,8 +19,7 @@
                         <h3 class="card-title mb-3">Ajouter Un médicament</h3>
                         <form action="/pharmacy/stock" method="POST">
                             @csrf
-                            <input type="text" name="name" id="" placeholder="Nom de médicament...">
-                            <input type="number" name="price" id="" placeholder="prix de médicament...">
+                            <input type="text" name="name" id="product" placeholder="Nom de médicament...">
                             <input type="number" name="quantity" id="" placeholder="Quantité de médicament...">
                             <button type="submit" class="btn btn-primary">confirmer</button>
                             <a href="/pharmacy/stock" class="btn btn-secondary">Annuler</a>
