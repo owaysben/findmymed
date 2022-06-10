@@ -18,13 +18,12 @@
     </script>
     {{-- <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script> --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-<<<<<<< Updated upstream
+
     {{-- <script>
-=======
+
 
     <script>
->>>>>>> Stashed changes
-        mapboxgl.accessToken = 'pk.eyJ1IjoiZGVwcmEiLCJhIjoiY2t0Znh2OGY2MGN1cjJ1bnU0aWo5NW1tZCJ9.GEC5KcxUjIVdLsxMQ31rZA';
+ = 'pk.eyJ1IjoiZGVwcmEiLCJhIjoiY2t0Znh2OGY2MGN1cjJ1bnU0aWo5NW1tZCJ9.GEC5KcxUjIVdLsxMQ31rZA';
         var map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/mapbox/streets-v11'
