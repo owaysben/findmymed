@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\ProductQuantity;
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Model;
 
 class ProductQuantityController extends Controller
@@ -41,15 +42,15 @@ class ProductQuantityController extends Controller
      */
     public function store(Request $request)
     {
-        // var_dump($request);
+        $product_q = request()->input("product") ?? "";
+        $product = Product::where('name',  $product_q);
+        var_dump($product);
         $request->validate([
             'name' => 'required',
-            'price' => 'required',
             'quantity' => 'required',
         ]);
         ProductQuantity::create([
             'product_id' => $request->input(''),
-            // 'price' => $request->input('price'),
             'quantity' => $request->input('quantity'),
             'pharmacy_id' => auth()->user()->id
         ]);

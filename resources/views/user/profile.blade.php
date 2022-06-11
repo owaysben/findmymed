@@ -2,6 +2,7 @@
 @section('content')
 
 
+
     <!--Main container. Everything must be contained within a top-level container.-->
 <div class="container-fluid py-5">
 
@@ -159,31 +160,29 @@
 
                                 </tbody>
                             </table>
+
                         </div>
+                    </section>
+
+
+                </div>
+                <div class="card lighten-100 text-dark text-center">
+                    <div class="p-4 align-items-center">
+
+                        <button class="btn btn-success btn-md text-light">
+                            Signaler un problème
+                        </button>
+
+
                     </div>
+
                 </section>
 
-            </div>
-            <div class="card lighten-100 text-dark text-center">
-            <div class="p-4 align-items-center">
-
-                         <button class="btn btn-success btn-md text-light" data-bs-toggle="modal" data-bs-target="#signal">
-                        Signaler un problème
-                    </button>
-
-
-            </div>
-            </div>
 
         </div> <!-- End column 2 -->
 
     </div> <!-- End row 1 -->
 
 </div> <!-- End main container -->
-
-
-
-
-
 
 @endsection
