@@ -12,7 +12,7 @@
         <!-- First column (smaller of the two). Will appear on the left on desktop and on the top on mobile. -->
         <div class="col-md-4 col-sm-12 col-xs-12">
 
-            <div class="card" style="md-4 sm-12 xs-12 bg-primary">
+            <div class="card" style="md-4 sm-12 xs-12 bg-light">
 
 
                 <ul class="list-group list-group-flush">
@@ -45,12 +45,7 @@
                     <li class="list-group-item">
                         <p>Email: <span style="font-weight: 2;">{{ Auth::user()->email }}</span></p>
                     </li>
-                    <li class="list-group-item">
-                        <p>Adresse: <span style="font-weight: 2;">AdresseClient</span></p>
-                    </li>
-                    <li class="list-group-item">
-                        <p>Localisation: <span style="font-weight: 2;">X/Y</span></p>
-                    </li>
+
                     <li class="list-group-item ">
                         <a href="#" class="btn btn-primary text-light">
                             Modifier mon profile

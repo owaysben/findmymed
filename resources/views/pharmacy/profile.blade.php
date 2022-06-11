@@ -11,11 +11,31 @@
 
                 <div class="card" style="md-4 sm-12 xs-12 bg-primary">
 
-                    <div class="card-body">
-                        <h5 class="card-title">{{ Auth::user()->name }}</h5>
 
-                    </div>
                     <ul class="list-group list-group-flush">
+                         <li>
+                        <div class="outer-div">
+                            <div class="inner-div">
+                                <div class="front">
+                                    <div class="front__bkg-photo"></div>
+                                    <div class="front__face-photo"></div>
+                                    <div class="front__text">
+                                        <h3 class="front__text-header">{{ Auth::user()->name }}</h3>
+
+
+                                    </div>
+                                </div>
+                                <div class="back">
+                                    <div class="social-media-wrapper">
+                                        <a href="#" class="social-icon"><i class="fab fa-codepen" aria-hidden="true"></i></a>
+                                        <a href="#" class="social-icon"><i class="fab fa-github-square" aria-hidden="true"></i></a>
+                                        <a href="#" class="social-icon"><i class="fab fa-linkedin-square" aria-hidden="true"></i></a>
+                                        <a href="#" class="social-icon"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+
+                            </div>
+                    </li>
                         <li class="list-group-item">
                             <p>Tel: <span style="font-weight: 2; "> {{ Auth::user()->number }} </span></p>
                         </li>
