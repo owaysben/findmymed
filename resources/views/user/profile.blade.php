@@ -67,7 +67,7 @@
                     <div class="container">
                         <div class="row text-center g-4">
                             <div class="card-body">
-                            <div class="h1>">
+                            <div class="h1">
                                 <i class="bi bi-book"></i>
                             </div>
 
