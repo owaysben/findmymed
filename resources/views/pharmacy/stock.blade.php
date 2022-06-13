@@ -66,7 +66,7 @@
         </section>
         <div class="pt-0">
             <!--second card-->
-            <div class="col-md">
+            <div class="col-md mb-500">
                 <div class="card bg-light text-dark">
                     <div class="card-body text-center">
                         <div class="h1">

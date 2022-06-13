@@ -61,7 +61,7 @@
 
 </head>
 
-<body>
+<body class="d-flex flex-column">
     <div id="app">
         <!--header-->
         <header>
@@ -73,7 +73,7 @@
             @yield('content')
         </main>
 
-        <footer>
+        <footer class="mt-auto position-relative w-100">
             @include('layouts.footer')
         </footer>
 
