@@ -11,21 +11,49 @@
             </div>
         </div>
     </section>
-    <div class="container align-items-center">
-   <div class="card" style="width: 80%;">
+    <div class="container justify-items-center">
+   <div class="card" style="width: 95%;">
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <h5 class="card-title">Nom médicament</h5>
+        <p class="card-text">
+            forme: smth <br>
+            Prix: default
+        </p>
     </div>
     <ul class="list-group list-group-flush">
-        <li class="list-group-item">An item</li>
-        <li class="list-group-item">A second item</li>
-        <li class="list-group-item">A third item</li>
+        <li class="list-group-item">Pharmacy name(+) </li>
+        <li class="list-group-item">Pharmacy name(+)</li>
+        <li class="list-group-item">Pharmacy name(+)</li>
     </ul>
     <div class="card-body">
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
+        <a href="#" class="card-link">hna dji hadik tae <1....10></a>
+
+    </div>
+</div>
+    </div>
+     <section class="bg-light text-dark p-2">
+        <div class="container ">
+            <div class="d-md-flex justify-content-between align-items-center position-relative">
+                <h3 class=>Vous n'arrivez pas à trouver une pharmacie proche de vous?
+                </h3> <br>
+
+            </div>
+            <h6>Essayer de faire une commande chez l'une des pharmacies suivantes!</h6>
+        </div>
+    </section>
+    <div class="container justify-items-center">
+   <div class="card" style="width: 95%;">
+
+
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Pharmacy name(-) </li>
+        <li class="list-group-item">Pharmacy name(-)</li>
+        <li class="list-group-item">Pharmacy name(-)</li>
+    </ul>
+    <div class="card-body">
+        <a href="#" class="card-link">hna dji hadik tae <1....10></a>
+
     </div>
 </div>
     </div>
