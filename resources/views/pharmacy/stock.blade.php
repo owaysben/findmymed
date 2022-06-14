@@ -93,14 +93,14 @@
                                         <td colspan="2">{{ $quantity->product->name }}</td>
                                         <td>{{ $quantity->product->price }}</td>
                                         <td class="fw-5">{{ $quantity->quantity }}</td>
-                                        <td>
+                                        <td class="d-flex justify-content-md-center">
 
                                             <a href="/pharmacy/stock/edit/{{ $quantity->product->id }}"
                                                 class="btn btn-md justify-content-md-end">
                                                 <i class="bi bi-pen"></i>
                                             </a>
                                             <form action="/pharmacy/stock/delete/{{ $quantity->product->id }}"
-                                                method="post" class="justify-content-md-end m-0">
+                                                method="post" >
                                                 @csrf
                                                 <button class="btn btn-md justify-content-md-end" type="submit">
                                                     <i class="bi bi-trash"></i>
