@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductQuantityController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Models\ProductQuantity;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,7 +44,12 @@ Route::group(['middleware' => ['auth', 'role:pharmacy']], function () {
         ->name('pharmacy.stockcreate');
     Route::post('/pharmacy/stock', [ProductQuantityController::class, 'store'])
         ->name('pharmacy.stockstore');
-    //Route::get('/pharmacy/stock', [ProductQuantityController::class]);
+    Route::get('/pharmacy/stock/edit/{product_id}', [ProductQuantityController::class, 'edit'])
+        ->name('pharmacy.stockedit');
+    Route::put('/pharmacy/stock/update/{product_id}', [ProductQuantity::class, 'update'])
+        ->name('pharmacy.updatestock');
+    Route::get('/pharmacy/stock/delete/{product_id}', [ProductQuantityController::class, 'destroy'])
+        ->name('pharmacy.stockdelete');
     Route::get('/pharmacy/profile/edit', [RegisteredUserController::class, 'edit'])
         ->name('pharmacy.editprofile');
     Route::put('/pharmacy/profile', [RegisteredUserController::class, 'update'])
