@@ -52,7 +52,7 @@ class ProductQuantityController extends Controller
         ]);
         $verif = ProductQuantity::where('product_id', $request->input('product'))->select()->first();
 
-        if (!empty($verif) && auth()->user->id == $verif->pharmacy_id) {
+        if (!empty($verif)) {
             ProductQuantity::where('product_id', $request->input('product'))->update([
                 'quantity' => $verif->quantity + $request->input('quantity')
             ]);
