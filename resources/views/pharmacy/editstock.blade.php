@@ -16,18 +16,13 @@
                         <div class="h1">
                             <i class="bi bi-stack"></i>
                         </div>
-                        <h3 class="card-title mb-3">Ajouter Un médicament</h3>
-                        <form action="/pharmacy/stock" method="POST">
+                        <h3 class="card-title mb-3">Modifier la quantity un médicament</h3>
+                        <form action="/pharmacy/stock/update/{{ $productquantity->product_id }}" method="POST">
                             @csrf
-                            <!-- <input type="text" name="name" id="product" placeholder="Nom de médicament..."> -->
-                            <select name="product" style="width: 300px" class="js-example-basic-single form-control">
-                                <option></option>
-                                @foreach ($data as $product)
-                                    <option value="{{ $product->id }}">{{ $product->name }}</option>
-                                @endforeach
-                            </select>
-
-                            <input type="number" name="quantity" id="" placeholder="Quantité de médicament...">
+                            @method('PUT')
+                            <input type="text" value="{{ $product->name }}" disabled>
+                            <input type="number" placeholder="Quantité de médicament..."
+                                value="{{ $productquantity->quantity }}">
                             <button type="submit" class="btn btn-primary">confirmer</button>
                             <a href="{{ route('pharmacy.stock') }}" class="btn btn-secondary">Annuler</a>
                         </form>

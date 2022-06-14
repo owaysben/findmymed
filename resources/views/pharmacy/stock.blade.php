@@ -6,12 +6,13 @@
                 <div class="d-md-flex justify-content-between align-items-center">
 
                     <!--<div class="input-group news-input">
-                              <input type="text" class="form-control" placeholder="Entrez le nom d'un medicament">
-                              <button class="btn btn-dark btn-lg" type="button">Rechercher</button>
-                            </div>-->
+                                                                                                  <input type="text" class="form-control" placeholder="Entrez le nom d'un medicament">
+                                                                                                  <button class="btn btn-dark btn-lg" type="button">Rechercher</button>
+                                                                                                </div>-->
                     <a href="/pharmacy/stock/create" class="btn btn-success">
                         Ajouter un médicament
                     </a>
+                    @include('partials.flashmessages')
                     {{-- <button class="btn btn-light btn-large" data-bs-toggle="modal" data-bs-target="#ajouterMed">
                         Ajouter un médicament
                     </button> --}}
@@ -64,7 +65,7 @@
                 </div>
             </div>
         </section>
-        <div class="pt-0">
+        <div class="pt-0 ">
             <!--second card-->
             <div class="col-md">
                 <div class="card bg-light text-dark">
@@ -73,7 +74,7 @@
                             <i class="bi bi-stack"></i>
                         </div>
                         <h3 class="card-title mb-3">Mon stock</h3>
-                        <table class="table table-light justify-content-between align-items-center table-hover ">
+                        <table class="table pt-12 table-light justify-content-between align-items-center table-hover ">
                             <thead class="table-dark">
                                 <tr>
                                     <th scope="row">ID medicament</th>
@@ -81,7 +82,7 @@
                                     <th>Prix</th>
                                     <th>Quantité</th>
                                     <th colspan="2">
-                                        Lorem
+                                        Action
                                     </th>
                                 </tr>
                             </thead>
@@ -93,12 +94,18 @@
                                         <td>{{ $quantity->product->price }}</td>
                                         <td class="fw-5">{{ $quantity->quantity }}</td>
                                         <td>
-                                            <button class="btn btn-md justify-content-md-end">
+
+                                            <a href="/pharmacy/stock/edit/{{ $quantity->product->id }}"
+                                                class="btn btn-md justify-content-md-end">
                                                 <i class="bi bi-pen"></i>
-                                            </button>
-                                            <button class="btn btn-md justify-content-md-end">
-                                                <i class="bi bi-trash"></i>
-                                            </button>
+                                            </a>
+                                            <form action="/pharmacy/stock/delete/{{ $quantity->product->id }}"
+                                                method="post" class="justify-content-md-end m-0">
+                                                @csrf
+                                                <button class="btn btn-md justify-content-md-end" type="submit">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach

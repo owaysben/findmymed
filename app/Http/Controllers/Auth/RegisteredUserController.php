@@ -67,18 +67,21 @@ class RegisteredUserController extends Controller
     public function update(UpdateProfileRequest $request)
     {
         $user = User::findOrFail(auth()->user()->id);
+        $newImageName = uniqid() . '-' . $user->name . '.' . $request->image->extension();
+        $request->image->move(public_path('images'), $newImageName);
 
         $user->name = $request->name;
         $user->number = $request->number;
         $user->adresse = $request->adresse;
+        $user->image = $newImageName;
         $user->save();
         // session()->flash('success', 'Utilisateur mis à jour avec succés');
 
         if (Auth::user()->hasRole('user')) {
-            return redirect(route('user.profile'))->with('success', 'Profile updated!');
+            return redirect(route('user.profile'))->with('success', 'Utilisateur mis à jour avec succés');
         } elseif (Auth::user()->hasRole('pharmacy')) {
 
-            return redirect(route('pharmacy.profile'))->with('success', 'Profile updated!');
+            return redirect(route('pharmacy.profile'))->with('success', 'Utilisateur mis à jour avec succés');
         }
     }
-}
+};

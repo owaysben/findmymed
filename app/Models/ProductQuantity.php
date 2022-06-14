@@ -13,14 +13,14 @@ class ProductQuantity extends Model
 
     protected $primaryKey = 'id';
 
-    protected $fillable = ['quantity', 'price', 'name'];
+    protected $fillable = ['quantity', 'product_id', 'pharmacy_id'];
 
-    protected $with = [
+    /**protected $with = [
         'pharmacy'
-    ];
-    public function pharmacy()
+    ];**/
+    public function user()
     {
-        return $this->belongsTo(Pharmacy::class);
+        return $this->belongsTo(User::class);
     }
     public function product()
     {
