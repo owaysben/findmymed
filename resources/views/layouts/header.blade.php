@@ -1,28 +1,37 @@
 <!--Navbar-->
-<nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3">
-    <div class="container">
-        <a href="/" class="navbar-brand"> Find My Med</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
-            <span class="navbar-toggler-icon"></span>
+<!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
+      <div class="container">
+        <a href="#" class="navbar-brand">Find My Med</a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navmenu"
+        >
+          <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="#navmenu">
-            <ul class="navbar-nav ms-auto">
+       <div class="collapse navbar-collapse" id="navmenu">
+          <ul class="navbar-nav ms-auto">
                 {{-- <li class="nav-item">
                     <a href="/" class="nav-link">A propos</a>
                 </li> --}}
                 @guest
                     @if (Route::has('login'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">Se Connecter</a>
+                            <a href="{{ route('login') }}" class="nav-link">Se Connecter</a>
                         </li>
                     @endif
 
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">S'inscrire</a>
+                            <a  href="{{ route('register') }}" class="nav-link">S'inscrire</a>
                         </li>
                     @endif
+            </ul>
                 @else
+            <ul>
                     {{-- <li class="nav-item">
                         <a href="#notifs" class="nav-link" data-bs-toggle="modal"
                             data-bs-target="#notifs">Notifications <span class="badge bg-secondary">4</span>
@@ -47,7 +56,7 @@
                             @endrole
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
-                                                                             document.getElementById('logout-form').submit();">
+                                 document.getElementById('logout-form').submit();">
                                 {{ __('Deconnecter') }}
                             </a>
 

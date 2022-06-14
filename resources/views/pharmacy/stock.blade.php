@@ -6,9 +6,9 @@
                 <div class="d-md-flex justify-content-between align-items-center">
 
                     <!--<div class="input-group news-input">
-                                                                                                  <input type="text" class="form-control" placeholder="Entrez le nom d'un medicament">
-                                                                                                  <button class="btn btn-dark btn-lg" type="button">Rechercher</button>
-                                                                                                </div>-->
+                                                                                                      <input type="text" class="form-control" placeholder="Entrez le nom d'un medicament">
+                                                                                                      <button class="btn btn-dark btn-lg" type="button">Rechercher</button>
+                                                                                                    </div>-->
                     <a href="/pharmacy/stock/create" class="btn btn-success">
                         Ajouter un médicament
                     </a>
@@ -67,7 +67,7 @@
         </section>
         <div class="pt-0 ">
             <!--second card-->
-            <div class="col-md">
+            <div class="col-md mb-500">
                 <div class="card bg-light text-dark">
                     <div class="card-body text-center">
                         <div class="h1">
