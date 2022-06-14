@@ -77,7 +77,6 @@
                 .gmap_iframe {
                     height: 400px !important;
                 }
-
             </style>
         </div>
     </section>
