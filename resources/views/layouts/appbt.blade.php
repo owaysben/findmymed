@@ -59,14 +59,14 @@
 
 </head>
 
-<body class="d-flex flex-column">
+<body class="d-flex flex-column min-vh-100">
     <div id="app">
         <!--header-->
         <header>
             @include('layouts.header')
         </header>
 
-        <main>
+        <main class="mb-5">
             @yield('content')
         </main>
 
