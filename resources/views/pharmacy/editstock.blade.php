@@ -17,12 +17,12 @@
                             <i class="bi bi-stack"></i>
                         </div>
                         <h3 class="card-title mb-3">Modifier la quantity un médicament</h3>
-                        <form action="/pharmacy/stock/update/{{ $productquantity->product_id }}" method="POST">
+                        <form action="/pharmacy/stock/update/{{ $productquantity->id }}" method="POST">
                             @csrf
                             @method('PUT')
                             <input type="text" value="{{ $product->name }}" disabled>
                             <input type="number" placeholder="Quantité de médicament..."
-                                value="{{ $productquantity->quantity }}">
+                                value="{{ $productquantity->quantity }}" name="quantity">
                             <button type="submit" class="btn btn-primary">confirmer</button>
                             <a href="{{ route('pharmacy.stock') }}" class="btn btn-secondary">Annuler</a>
                         </form>

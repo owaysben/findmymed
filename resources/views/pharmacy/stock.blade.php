@@ -6,9 +6,9 @@
                 <div class="d-md-flex justify-content-between align-items-center">
 
                     <!--<div class="input-group news-input">
-                                                                                                      <input type="text" class="form-control" placeholder="Entrez le nom d'un medicament">
-                                                                                                      <button class="btn btn-dark btn-lg" type="button">Rechercher</button>
-                                                                                                    </div>-->
+                                                                                                              <input type="text" class="form-control" placeholder="Entrez le nom d'un medicament">
+                                                                                                              <button class="btn btn-dark btn-lg" type="button">Rechercher</button>
+                                                                                                            </div>-->
                     <a href="/pharmacy/stock/create" class="btn btn-success">
                         Ajouter un médicament
                     </a>
@@ -99,8 +99,8 @@
                                                 class="btn btn-md justify-content-md-end">
                                                 <i class="bi bi-pen"></i>
                                             </a>
-                                            <form action="/pharmacy/stock/delete/{{ $quantity->product->id }}"
-                                                method="post" class="justify-content-md-end m-0">
+                                            <form action="/pharmacy/stock/delete/{{ $quantity->id }}" method="get"
+                                                class="justify-content-md-end m-0">
                                                 @csrf
                                                 <button class="btn btn-md justify-content-md-end" type="submit">
                                                     <i class="bi bi-trash"></i>

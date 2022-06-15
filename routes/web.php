@@ -46,7 +46,7 @@ Route::group(['middleware' => ['auth', 'role:pharmacy']], function () {
         ->name('pharmacy.stockstore');
     Route::get('/pharmacy/stock/edit/{product_id}', [ProductQuantityController::class, 'edit'])
         ->name('pharmacy.stockedit');
-    Route::put('/pharmacy/stock/update/{product_id}', [ProductQuantity::class, 'update'])
+    Route::put('/pharmacy/stock/update/{product_id}', [ProductQuantityController::class, 'update'])
         ->name('pharmacy.updatestock');
     Route::get('/pharmacy/stock/delete/{product_id}', [ProductQuantityController::class, 'destroy'])
         ->name('pharmacy.stockdelete');

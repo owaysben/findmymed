@@ -15,12 +15,12 @@ class ProductQuantity extends Model
 
     protected $fillable = ['quantity', 'product_id', 'pharmacy_id'];
 
-    /**protected $with = [
+    protected $with = [
         'pharmacy'
-    ];**/
-    public function user()
+    ];
+    public function pharmacy()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Pharmacy::class);
     }
     public function product()
     {
