@@ -13,6 +13,7 @@
             </div>
         </section>
         <div class="pt-0 ">
+            <!--second card-->
             <div class="col-md mb-500">
                 <div class="card bg-light text-dark">
                     <div class="card-body text-center">
@@ -39,7 +40,7 @@
                                         <td colspan="2">{{ $quantity->product->name }}</td>
                                         <td>{{ $quantity->product->price }}</td>
                                         <td class="fw-5">{{ $quantity->quantity }}</td>
-                                        <td>
+                                        <td class="d-flex justify-content-md-center">
 
                                             <a href="/pharmacy/stock/edit/{{ $quantity->product->id }}"
                                                 class="btn btn-md justify-content-md-end">
