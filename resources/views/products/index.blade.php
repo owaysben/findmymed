@@ -21,10 +21,10 @@
                             <img src="\images\ph2.jpg" alt="med" style="max-height:45%; max-width:45%">
                         </div>
 
-                        <h3 class="title mb-3">Nom Médoc</h3>
+                        <h3 class="title mb-3">{{ $product->name }}</h3>
                         <p class="text">
-                            Forme: smth.<br>
-                            price: smth.
+                            Forme: {{ $product->forme }}<br>
+                            price: {{ $product->price }}
                         </p>
                     </div>
                 </div>
@@ -35,49 +35,33 @@
 
             <ul class="list-group list-group-flush">
                 <li class="list-group-item shadow">
-                    <h5>Pharmacy name(+)</h5>
-                    <h6 class="fw-light">
-                        Adresse:@@@@@@@</h6>
-                    <div class="float-end">
-                        <button class="btn bt-md btn-primary justify-content-md-center" type="modal">
-                            Afficher localisation
-                        </button>
-                        <button class="btn bt-md btn-success justify-content-md-center" type="modal">
-                            Réserver
-                        </button>
-                    </div>
-                </li>
-                <li class="list-group-item shadow">
-                    <h5>Pharmacy name(+)</h5>
-                    <h6 class="fw-light">
-                        Adresse:@@@@@@@</h6>
-                    <div class="float-end">
-                        <button class="btn bt-md btn-primary justify-content-md-center" type="modal">
-                            Afficher localisation
-                        </button>
-                        <button class="btn bt-md btn-success justify-content-md-center" type="modal">
-                            Réserver
-                        </button>
-                    </div>
-                </li>
-                <li class="list-group-item shadow">
-                    <h5>Pharmacy name(+)</h5>
-                    <h6 class="fw-light">
-                        Adresse:@@@@@@@</h6>
-                    <div class="float-end">
-                        <button class="btn bt-md btn-primary justify-content-md-center" type="modal">
-                            Afficher localisation
-                        </button>
-                        <button class="btn bt-md btn-success justify-content-md-center" type="modal">
-                            Réserver
-                        </button>
-                    </div>
+                    @if ($pharmacieswith)
+                        @foreach ($pharmacieswith as $item)
+                            <h5>{{ $item->pharmacy->name }}</h5>
+                            <h6 class="fw-light">
+                                Adresse: {{ $item->pharmacy->address }}</h6>
+                            <div class="float-end">
+                                <button class="btn bt-md btn-primary justify-content-md-center" type="modal" id="mapBtn">
+                                    Afficher localisation
+                                </button>
+                                <button class="btn bt-md btn-success justify-content-md-center" type="modal">
+                                    Réserver
+                                </button>
+                                <div id="mapb"></div>
+                            </div>
+                        @endforeach
+                    @else
+                        <p>Il n'y a pas de médicament disponible </p>
+                    @endif
+
                 </li>
             </ul>
-            <div class="card-body ">
-                <a href="#" class="card-link ">hna dji hadik tae <1....10></a>
+            @if ($pharmacieswith->links())
+                <div class="card-body ">
+                    <div class="card-link ">{{ $pharmacieswith->links() }}</div>
 
-            </div>
+                </div>
+            @endif
         </div>
     </div>
     <section class="bg-white text-dark p-2">
@@ -96,72 +80,27 @@
 
 
             <ul class="list-group list-group-flush">
-                <li class="list-group-item shadow">
-                    <h5>Pharmacy name(+)</h5>
-                    <h6 class="fw-light">
-                        Adresse:@@@@@@@</h6>
-                    <div class="float-end">
-                        <button class="btn bt-md btn-primary justify-content-md-center" type="modal">
-                            Afficher localisation
-                        </button>
-                        <button class="btn bt-md btn-success justify-content-md-center" type="modal">
-                            Commander
-                        </button>
-                    </div>
-                </li>
-                <li class="list-group-item shadow">
-                    <h5>Pharmacy name(+)</h5>
-                    <h6 class="fw-light">
-                        Adresse:@@@@@@@</h6>
-                    <div class="float-end">
-                        <button class="btn bt-md btn-primary justify-content-md-center" type="modal">
-                            Afficher localisation
-                        </button>
-                        <button class="btn bt-md btn-success justify-content-md-center" type="modal">
-                            Commander
-                        </button>
-                    </div>
-                </li>
-                <li class="list-group-item shadow">
-                    <h5>Pharmacy name(+)</h5>
-                    <h6 class="fw-light">
-                        Adresse:@@@@@@@</h6>
-                    <div class="float-end">
-                        <button class="btn bt-md btn-primary justify-content-md-center" type="modal">
-                            Afficher localisation
-                        </button>
-                        <button class="btn bt-md btn-success justify-content-md-center" type="modal">
-                            Commander
-                        </button>
-                    </div>
-                </li>
+                @foreach ($pharmacieswithout as $item)
+                    <li class="list-group-item shadow">
+                        <h5>{{ $pharmacieswithout->pharmacy->name }}</h5>
+                        <h6 class="fw-light">Adresse:{{ $pharmacieswithout->pharmacy->address }}</h6>
+                        <div class="float-end">
+                            <button class="btn bt-md btn-primary justify-content-md-center" type="modal">
+                                Afficher localisation
+                            </button>
+                            <button class="btn bt-md btn-success justify-content-md-center" type="modal">
+                                Commander
+                            </button>
+                        </div>
+                    </li>
+                @endforeach
             </ul>
             <div class="card-body ">
-                <a href="#" class="card-link">hna dji hadik tae <1....10></a>
+                <div class="card-link">{{ $pharmacieswith->links() }}</div>
 
             </div>
         </div>
     </div>
     <div class="container mx-20 my-20">
-        {{-- <div class="card bg-light text-dark">
-                        <div class="card-body text-center">
-                          <h3 class="card-title mb-3">Résultats</h3>
-    <section class="bg-light">
-        <div class="list-group ">
-            @foreach ($products as $product)
-                <a href="{{ route('products.show', $product->id) }}" class="list-group-item list-group-item-action">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">{{ $product->name }}</h5>
-                    <p class="mb-1">{{ $product->description }}</p>
-                    <small class="text-muted"><b> voie</b> {{ $product->voie }}</small> <br>
-                    <small class="text-muted">forme {{ $product->forme }}</small> <br>
-                    <small class="text-muted">prix {{ $product->price }}da</small>
-                     <button class="btn btn-primary btn-md justify-content-md-end"> Afficher position </button>
-                    </div>
-                </a>
-            @endforeach
-        </div>
-        {{ $products->appends($_GET)->links() }}
-    </section>
-                        </div> --}}
+
     @endsection

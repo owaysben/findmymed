@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductQuantityController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Models\ProductQuantity;
@@ -18,7 +19,7 @@ use App\Models\ProductQuantity;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('house');
+Route::get('/', [HomeController::class, 'index'])->middleware('auth')->name('house');
 
 
 //route for client
@@ -56,6 +57,7 @@ Route::group(['middleware' => ['auth', 'role:pharmacy']], function () {
         ->name('pharmacy.updateprofile');
 });
 
-Route::resource("products", App\Http\Controllers\ProductController::class);
+Route::resource("products", ProductController::class);
+Route::get('get-result', [ProductController::class, 'getResult'])->name('get-result');
 
 require __DIR__ . '/auth.php';

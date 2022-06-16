@@ -20,10 +20,16 @@ class ProductQuantity extends Model
     ];
     public function pharmacy()
     {
-        return $this->belongsTo(Pharmacy::class);
+        return $this->belongsTo(Pharmacy::class, 'pharmacy_id', 'user_id')->withdefault([
+            'name' => 'guest'
+        ]);
     }
     public function product()
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(Product::class, 'product_id');
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'pharmacy_id');
     }
 }
