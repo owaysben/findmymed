@@ -19,9 +19,9 @@ use App\Models\ProductQuantity;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->middleware('auth')->name('house');
+Route::get('/', [HomeController::class, 'index'])->name('house');
 
-
+//->middleware('auth')
 //route for client
 Route::group(['middleware' => ['auth', 'role:user']], function () {
     Route::get('/user/orders', [DashboardController::class, 'orders'])

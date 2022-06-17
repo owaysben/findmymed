@@ -21,44 +21,51 @@
                             <i class="bi bi-stack"></i>
                         </div>
                         <h3 class="card-title mb-3">Mon stock</h3>
-                        <table class="table pt-12 table-light justify-content-between align-items-center table-hover ">
-                            <thead class="table-dark">
-                                <tr>
-                                    <th scope="row">ID medicament</th>
-                                    <th colspan="2">Nom médicament</th>
-                                    <th>Prix</th>
-                                    <th>Quantité</th>
-                                    <th colspan="2">
-                                        Action
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($quantities as $quantity)
+
+                        @if ($quantities->count() > 0)
+                            <table class="table pt-12 table-light justify-content-between align-items-center table-hover ">
+                                <thead class="table-dark">
                                     <tr>
-                                        <th scope="row">{{ $quantity->product->id }}</th>
-                                        <td colspan="2">{{ $quantity->product->name }}</td>
-                                        <td>{{ $quantity->product->price }}</td>
-                                        <td class="fw-5">{{ $quantity->quantity }}</td>
-                                        <td class="d-flex justify-content-md-center">
-
-                                            <a href="/pharmacy/stock/edit/{{ $quantity->product->id }}"
-                                                class="btn btn-md justify-content-md-end">
-                                                <i class="bi bi-pen"></i>
-                                            </a>
-                                            <form action="/pharmacy/stock/delete/{{ $quantity->id }}" method="get"
-                                                class="justify-content-md-end m-0">
-                                                @csrf
-                                                <button class="btn btn-md justify-content-md-end" type="submit">
-                                                    <i class="bi bi-trash"></i>
-                                                </button>
-                                            </form>
-                                        </td>
+                                        <th scope="row">ID medicament</th>
+                                        <th colspan="2">Nom médicament</th>
+                                        <th>Prix</th>
+                                        <th>Quantité</th>
+                                        <th colspan="2">
+                                            Action
+                                        </th>
                                     </tr>
-                                @endforeach
+                                </thead>
+                                <tbody>
+                                    @foreach ($quantities as $quantity)
+                                        <tr>
+                                            <th scope="row">{{ $quantity->product->id }}</th>
+                                            <td colspan="2">{{ $quantity->product->name }}</td>
+                                            <td>{{ $quantity->product->price }}</td>
+                                            <td class="fw-5">{{ $quantity->quantity }}</td>
+                                            <td class="d-flex justify-content-md-center">
 
-                            </tbody>
-                        </table>
+                                                <a href="/pharmacy/stock/edit/{{ $quantity->product->id }}"
+                                                    class="btn btn-md justify-content-md-end">
+                                                    <i class="bi bi-pen"></i>
+                                                </a>
+                                                <form action="/pharmacy/stock/delete/{{ $quantity->id }}" method="get"
+                                                    class="justify-content-md-end m-0">
+                                                    @csrf
+                                                    <button class="btn btn-md justify-content-md-end" type="submit">
+                                                        <i class="bi bi-trash"></i>
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        @else
+                            <div class="col-md-12 my-5">
+                                <h5>Votre panier est vide pour le moment.</h5>
+                            </div>
+                        @endif
+
                     </div>
                 </div>
             </div>
