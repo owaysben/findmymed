@@ -28,6 +28,7 @@
                         </p>
                 </div>
             </div>
+<<<<<<< Updated upstream
         </div>
     </section>
    <div class="card justify-items-center text-align-center mb-25"style="width: 100%;">
@@ -85,6 +86,57 @@
 
             </div>
             <h5 class="mb-4 fw-light "> Essayer de faire une commande chez l'une des pharmacies suivantes!</h5>
+=======
+        </section>
+        <div class="card justify-items-center text-align-center mb-25" style="width: 100%;">
+
+            @if ($pharmacieswith->count() > 0)
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item shadow">
+                        @if ($pharmacieswith->count() > 0)
+                            @foreach ($pharmacieswith as $item)
+                                <h5>{{ $item->pharmacy->name }}</h5>
+                                <h6 class="fw-light">
+                                    Adresse: {{ $item->pharmacy->address }}</h6>
+                                <div class="float-end">
+                                    <button class="btn bt-md btn-primary justify-content-md-center"
+                                    data-bs-toggle="modal" data-bs-target="#map" id="mapBtn">
+                                        Afficher localisation
+                                    </button>
+                                    <!-- Map modal code -->
+                                    <div class="modal" id="map" tabindex="-1" w-50>
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Suivez le chemin!</h5>
+                                                </div>
+                                                <div class="modal-body">
+                                                <p>Modal body content aka el map goes here.</p>
+                                                </div>
+                                                <!--If you need buttons or whatsover, if u don't just drop the footer-->
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button class="btn bt-md btn-success justify-content-md-center" type="modal">
+                                        Réserver
+                                    </button>
+                                    <div id="mapb"></div>
+                                </div>
+                            @endforeach
+                        @else
+                            <p>Il n'y a pas de médicament disponible </p>
+                        @endif
+
+                    </li>
+                </ul>
+                <div class="card-body ">
+                    <div class="card-link ">{{ $pharmacieswith->links() }}</div>
+>>>>>>> Stashed changes
 
         </div>
     </section>
