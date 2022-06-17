@@ -6,87 +6,28 @@
             <div class="d-md-flex justify-content-between align-items-center position-relative">
                 <h3 class="mb-3">Trouvez la pharmacie qui vous covient le plus</h3>
                 <div class="input-group news-input">
-                   @include('partials.search')
+                    @include('partials.search')
                 </div>
             </div>
         </div>
     </section>
     <div class="container justify-items-center text-align-center">
-    <section class="d-flex d-md-flex justify-items-center text-align-center">
+        <section class="d-flex d-md-flex justify-items-center text-align-center">
 
-        <div class="container">
-            <div class="bg-white text-dark">
-                <div class=" text-center">
-                    <div>
-                        <img src="\images\ph2.jpg" alt="med" style="max-height:45%; max-width:45%">
-                    </div>
+            <div class="container">
+                <div class="bg-white text-dark">
+                    <div class=" text-center">
+                        <div>
+                            <img src="\images\ph2.jpg" alt="med" style="max-height:45%; max-width:45%">
+                        </div>
 
                         <h3 class="title mb-3">Nom Médoc</h3>
                         <p class="text">
                             Forme: smth.<br>
                             price: smth.
                         </p>
+                    </div>
                 </div>
-            </div>
-<<<<<<< Updated upstream
-        </div>
-    </section>
-   <div class="card justify-items-center text-align-center mb-25"style="width: 100%;">
-
-
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item shadow">
-            <h5>Pharmacy name(+)</h5>
-            <h6 class="fw-light">Adresse:@@@@@@@</h6>
-            <div class="float-end">
-            <button class="btn bt-md btn-primary justify-content-md-center" type="modal">
-                Afficher localisation
-            </button>
-             <button class="btn bt-md btn-success justify-content-md-center" type="modal">
-                Réserver
-            </button>
-            </div>
-        </li>
-        <li class="list-group-item shadow">
-            <h5>Pharmacy name(+)</h5>
-            <h6 class="fw-light">Adresse:@@@@@@@</h6>
-            <div class="float-end">
-            <button class="btn bt-md btn-primary justify-content-md-center" type="modal">
-                Afficher localisation
-            </button>
-             <button class="btn bt-md btn-success justify-content-md-center" type="modal">
-                Réserver
-            </button>
-            </div>
-        </li>
-        <li class="list-group-item shadow">
-            <h5>Pharmacy name(+)</h5>
-            <h6 class="fw-light">Adresse:@@@@@@@</h6>
-            <div class="float-end">
-            <button class="btn bt-md btn-primary justify-content-md-center" type="modal">
-                Afficher localisation
-            </button>
-             <button class="btn bt-md btn-success justify-content-md-center" type="modal">
-                Réserver
-            </button>
-            </div>
-        </li>
-    </ul>
-    <div class="card-body ">
-        <a href="#" class="card-link ">hna dji hadik tae <1....10></a>
-
-    </div>
-</div>
-</div>
-     <section class="bg-white text-dark p-2">
-        <div class="container px-5 mb-15">
-            <div class="d-md-flex justify-content-between align-items-center position-relative">
-                <h3 class="mb-4 mt-4 text-secondary">Vous n'arrivez pas à trouver une pharmacie proche de vous?
-                </h3> <br>
-
-            </div>
-            <h5 class="mb-4 fw-light "> Essayer de faire une commande chez l'une des pharmacies suivantes!</h5>
-=======
         </section>
         <div class="card justify-items-center text-align-center mb-25" style="width: 100%;">
 
@@ -99,8 +40,8 @@
                                 <h6 class="fw-light">
                                     Adresse: {{ $item->pharmacy->address }}</h6>
                                 <div class="float-end">
-                                    <button class="btn bt-md btn-primary justify-content-md-center"
-                                    data-bs-toggle="modal" data-bs-target="#map" id="mapBtn">
+                                    <button class="btn bt-md btn-primary justify-content-md-center" data-bs-toggle="modal"
+                                        data-bs-target="#map" id="mapBtn">
                                         Afficher localisation
                                     </button>
                                     <!-- Map modal code -->
@@ -111,11 +52,12 @@
                                                     <h5 class="modal-title">Suivez le chemin!</h5>
                                                 </div>
                                                 <div class="modal-body">
-                                                <p>Modal body content aka el map goes here.</p>
+                                                    <p>Modal body content aka el map goes here.</p>
                                                 </div>
                                                 <!--If you need buttons or whatsover, if u don't just drop the footer-->
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Close</button>
                                                     <button type="button" class="btn btn-primary">Save changes</button>
                                                 </div>
                                             </div>
@@ -136,59 +78,65 @@
                 </ul>
                 <div class="card-body ">
                     <div class="card-link ">{{ $pharmacieswith->links() }}</div>
->>>>>>> Stashed changes
 
-        </div>
-    </section>
-    <div class="container justify-items-center">
-   <div class="card" style="width: 100%;">
+                </div>
+                </section>
+                <div class="container justify-items-center">
+                    <div class="card" style="width: 100%;">
 
 
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item shadow">
-           <h5>Pharmacy name(+)</h5>
-            <h6 class="fw-light">Adresse:@@@@@@@</h6>
-            <div class="float-end">
-            <button class="btn bt-md btn-primary justify-content-md-center" type="modal">
-                Afficher localisation
-            </button>
-             <button class="btn bt-md btn-success justify-content-md-center" type="modal">
-                Commander
-            </button>
-            </div>
-        </li>
-        <li class="list-group-item shadow">
-            <h5>Pharmacy name(+)</h5>
-            <h6 class="fw-light">Adresse:@@@@@@@</h6>
-            <div class="float-end">
-            <button class="btn bt-md btn-primary justify-content-md-center" type="modal">
-                Afficher localisation
-            </button>
-             <button class="btn bt-md btn-success justify-content-md-center" type="modal">
-                Commander
-            </button>
-            </div>
-        </li>
-        <li class="list-group-item shadow"><h5>Pharmacy name(+)</h5>
-            <h6 class="fw-light">Adresse:@@@@@@@</h6>
-            <div class="float-end">
-            <button class="btn bt-md btn-primary justify-content-md-center" type="modal">
-                Afficher localisation
-            </button>
-             <button class="btn bt-md btn-success justify-content-md-center" type="modal">
-                Commander
-            </button>
-            </div>
-        </li>
-    </ul>
-    <div class="card-body ">
-        <a href="#" class="card-link">hna dji hadik tae <1....10></a>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item shadow">
+                                <h5>Pharmacy name(+)</h5>
+                                <h6 class="fw-light">
+                                    Adresse:@@@@@@@
+                                </h6>
+                                <div class="float-end">
+                                    <button class="btn bt-md btn-primary justify-content-md-center" type="modal">
+                                        Afficher localisation
+                                    </button>
+                                    <button class="btn bt-md btn-success justify-content-md-center" type="modal">
+                                        Commander
+                                    </button>
+                                </div>
+                            </li>
+                            <li class="list-group-item shadow">
+                                <h5>Pharmacy name(+)</h5>
+                                <h6 class="fw-light">
+                                    Adresse:@@@@@@@
+                                </h6>
+                                <div class="float-end">
+                                    <button class="btn bt-md btn-primary justify-content-md-center" type="modal">
+                                        Afficher localisation
+                                    </button>
+                                    <button class="btn bt-md btn-success justify-content-md-center" type="modal">
+                                        Commander
+                                    </button>
+                                </div>
+                            </li>
+                            <li class="list-group-item shadow">
+                                <h5>Pharmacy name(+)</h5>
+                                <h6 class="fw-light">
+                                    Adresse:@@@@@@@
+                                </h6>
+                                <div class="float-end">
+                                    <button class="btn bt-md btn-primary justify-content-md-center" type="modal">
+                                        Afficher localisation
+                                    </button>
+                                    <button class="btn bt-md btn-success justify-content-md-center" type="modal">
+                                        Commander
+                                    </button>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="card-body ">
+                            <a href="#" class="card-link">hna dji hadik tae <1....10></a>
 
-    </div>
-</div>
-    </div>
-    <div class="container mx-20 my-20">
- {{--  <div class="card bg-light text-dark">
+                        </div>
+                    </div>
+                </div>
+                <div class="container mx-20 my-20">
+                    {{-- <div class="card bg-light text-dark">
                         <div class="card-body text-center">
 
                           <h3 class="card-title mb-3">Résultats</h3>
@@ -214,7 +162,5 @@
         </div>
         {{ $products->appends($_GET)->links() }}
     </section>
-                        </div>
-                        --}}
-
-@endsection
+                        </div> --}}
+                @endsection

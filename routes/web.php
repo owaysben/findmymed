@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductQuantityController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Models\ProductQuantity;
@@ -20,7 +21,7 @@ use App\Models\ProductQuantity;
 
 Route::get('/', [HomeController::class, 'index'])->name('house');
 
-
+//->middleware('auth')
 //route for client
 Route::group(['middleware' => ['auth', 'role:user']], function () {
     Route::get('/user/orders', [DashboardController::class, 'orders'])
@@ -46,7 +47,7 @@ Route::group(['middleware' => ['auth', 'role:pharmacy']], function () {
         ->name('pharmacy.stockstore');
     Route::get('/pharmacy/stock/edit/{product_id}', [ProductQuantityController::class, 'edit'])
         ->name('pharmacy.stockedit');
-    Route::put('/pharmacy/stock/update/{product_id}', [ProductQuantity::class, 'update'])
+    Route::put('/pharmacy/stock/update/{product_id}', [ProductQuantityController::class, 'update'])
         ->name('pharmacy.updatestock');
     Route::get('/pharmacy/stock/delete/{product_id}', [ProductQuantityController::class, 'destroy'])
         ->name('pharmacy.stockdelete');
@@ -56,6 +57,7 @@ Route::group(['middleware' => ['auth', 'role:pharmacy']], function () {
         ->name('pharmacy.updateprofile');
 });
 
-Route::resource("products", App\Http\Controllers\ProductController::class);
+Route::resource("products", ProductController::class);
+Route::get('get-result', [ProductController::class, 'getResult'])->name('get-result');
 
 require __DIR__ . '/auth.php';

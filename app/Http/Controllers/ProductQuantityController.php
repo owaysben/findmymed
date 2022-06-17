@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pharmacy;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\ProductQuantity;
@@ -34,6 +35,17 @@ class ProductQuantityController extends Controller
 
         return view('pharmacy.createstock', compact('data'));
     }
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function searchApi()
+    {
+        $q = request()->input("q") ?? "";
+        $products = Product::where('name', 'LIKE', '%' . $q . '%')->take(12);
+        return  $products;
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -51,11 +63,13 @@ class ProductQuantityController extends Controller
             'product' => 'required',
         ]);
         $verif = ProductQuantity::where('product_id', $request->input('product'))->select()->first();
+        $pharmacy = Pharmacy::where("user_id", auth()->user()->id)->first();
 
-        if (!empty($verif) && auth()->user->id == $verif->pharmacy_id) {
-            ProductQuantity::where('product_id', $request->input('product'))->update([
-                'quantity' => $verif->quantity + $request->input('quantity')
-            ]);
+        if (!empty($verif)) {
+            ProductQuantity::where('product_id', $request->input('product'))
+                ->where('pharmacy_id', $pharmacy->id)->update([
+                    'quantity' => $verif->quantity + $request->input('quantity')
+                ]);
         } elseif (empty($verif)) {
             ProductQuantity::create([
                 'product_id' => $request->input('product'),
@@ -99,10 +113,12 @@ class ProductQuantityController extends Controller
      */
     public function update(Request $request, $product_id)
     {
-        $product = ProductQuantity::find($product_id);
-        $product->quantity = $request->quantity;
-        $product->save();
-        return redirect('pharmacy.stock')->with('succes', 'quantity mis à jour avec succés');
+        $quantity = $request->quantity;
+        $product = ProductQuantity::findOrFail($product_id);
+        $product->update([
+            "quantity" => $quantity
+        ]);
+        return redirect(route('pharmacy.stock'))->with('succes', 'quantity mis à jour avec succés');
     }
 
     /**
@@ -113,10 +129,10 @@ class ProductQuantityController extends Controller
      */
     public function destroy($product_id)
     {
-        $med = ProductQuantity::where('product_id', $product_id)->first();
-        if (auth()->user->id == $med->pharmacy_id) {
+        $med = ProductQuantity::where('id', $product_id)->first();
+        if (auth()->user()->id == $med->pharmacy_id) {
             $med->delete();
-            return redirect('pharmacy.stock')->with('succes', 'quantity supprimé avec succés');
+            return redirect(route('pharmacy.stock'))->with('succes', 'quantity supprimé avec succés');
         }
     }
 }

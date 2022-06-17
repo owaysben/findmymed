@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Users\UpdateProfileRequest;
+use App\Models\Pharmacy;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -46,10 +47,15 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
         $user->attachRole($request->role_id);
-
         event(new Registered($user));
 
         Auth::login($user);
+        if ($user->hasRole('pharmacy')) {
+            $pharmacy = Pharmacy::firstOrCreate([
+                'name' => $user->name,
+                'user_id' => auth()->user()->id
+            ]);
+        }
 
         return redirect(RouteServiceProvider::HOME);
     }
@@ -67,14 +73,20 @@ class RegisteredUserController extends Controller
     public function update(UpdateProfileRequest $request)
     {
         $user = User::findOrFail(auth()->user()->id);
-        $newImageName = uniqid() . '-' . $user->name . '.' . $request->image->extension();
-        $request->image->move(public_path('images'), $newImageName);
+        $pharmacy = Pharmacy::where('user_id', auth()->user()->id,)->first();
+        //$newImageName = uniqid() . '-' . $user->name . '.' . $request->image->extension();
+        //$request->image->move(public_path('images'), $newImageName);
 
         $user->name = $request->name;
         $user->number = $request->number;
         $user->adresse = $request->adresse;
-        $user->image = $newImageName;
+        //$user->image = $newImageName;
         $user->save();
+        if ($user->hasRole('pharmacy')) {
+            $pharmacy->name = $request->name;
+            $pharmacy->address = $request->adresse;
+            $pharmacy->save();
+        }
         // session()->flash('success', 'Utilisateur mis à jour avec succés');
 
         if (Auth::user()->hasRole('user')) {

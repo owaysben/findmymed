@@ -5,22 +5,30 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\ProductQuantity;
+use App\Models\User;
+use App\Models\Pharmacy;
 
 class ProductController extends Controller
 {
+    public function getResult(Request $request)
+    {
+        $data = Product::select('name')->where('name', 'LIKE', '%' . $request->value . '%')->get();
+        return response()->json($data);
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         // $q = request()->input('q');
         $q = request()->input("q") ?? "";
-        $products = Product::where('name', 'LIKE', '%' . $q . '%')->paginate(12);
-        return view('products.index', [
-            'products' => $products
-        ]);
+        $product = Product::where('name', $q)->first();
+        $pharmacieswith = ProductQuantity::where('product_id', $product->id)->where('quantity', '>', 0)->paginate(3, ['*'], 'withPagination');
+        $pharmacieswithout = ProductQuantity::where('product_id', $product->id)->where('quantity', '=', 0)->paginate(3, ['*'], 'withoutPagination');
+
+        return view('products.index', compact('product', 'pharmacieswith', 'pharmacieswithout'));
     }
 
     /**

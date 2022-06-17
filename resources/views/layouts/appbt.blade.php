@@ -17,13 +17,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
-
-    <script src="./openlayers_lib/v6.14.1-dist(1)/v6.14.1-dist/ol.js"></script>
-    {{-- <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script> --}}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="./openlayers_lib/v6.14.1-dist(1)/v6.14.1-dist">
-
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"
+        integrity="sha512-HWlJyU4ut5HkEj0QsK/IxBCY55n5ZpskyjVlAoV9Z7XQwwkqXoYdCIC93/htL3Gu5H3R4an/S0h2NXfbZk3g7w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- <script src="{{ asset('js/mdb.min.js') }}" defer></script> -->
     <script type="text/javascript">
         $(document).ready(function() {
@@ -33,17 +29,7 @@
             });
         });
     </script>
-    {{-- <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script> --}}
-
-    {{-- <script>
-                mapboxgl.accessToken = 'pk.eyJ1IjoiZGVwcmEiLCJhIjoiY2t0Znh2OGY2MGN1cjJ1bnU0aWo5NW1tZCJ9.GEC5KcxUjIVdLsxMQ31rZA';
-                var map = new mapboxgl.Map({
-                container: 'map',
-                style: 'mapbox://styles/mapbox/streets-v11'
-                center: [-71.060982, 42.35725],
-            zoom: 18
-        })
-    </script> --}}
+    <script src="{{ asset('js/map.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -56,7 +42,7 @@
 
 
 
-   {{-- <linkhref="asset('css/mdb.min.css') --}" rel="stylesheet"> -->
+    {{-- <linkhref="asset('css/mdb.min.css') --}" rel="stylesheet"> -->
 
     <link href="{{ asset('css/select2.css') }}" rel="stylesheet" />
     <!-- <link href="{{ asset('css/mdb.min.css') }}" rel="stylesheet"> -->
@@ -70,20 +56,20 @@
             width: 100%;
         }
 
-    </style>--}}
+    </style> --}}
 
 
 
 </head>
 
-<body class="d-flex flex-column">
+<body class="d-flex flex-column min-vh-100">
     <div id="app">
         <!--header-->
         <header>
             @include('layouts.header')
         </header>
 
-        <main>
+        <main class="mb-5">
             @yield('content')
         </main>
 
@@ -94,5 +80,27 @@
     </div>
 
 </body>
+<script>
+    url = " {{ route('get-result') }}"
+    $('input.typeahead').typeahead({
+        source: function(value, process) {
+            return $.get(url, {
+                value: value
+            }, function(data) {
+                return process(data);
+            });
+        }
+    });
+</script>
+<script>
+    $('#mapBtn').click(function() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                console.log(position.coords);
+            });
+        }
+    });
+</script>
+
 
 </html>

@@ -13,31 +13,36 @@
 
 
                     <ul class="list-group list-group-flush">
-                         <li>
-                        <div class="outer-div">
-                            <div class="inner-div">
-                                <div class="front">
-                                    <div class="front__bkg-photo"></div>
-                                    <div class="front__face-photo"></div>
-                                    <div class="front__text">
-                                        <h3 class="front__text-header">{{ Auth::user()->name }}</h3>
+                        <li>
+                            <div class="outer-div">
+                                <div class="inner-div">
+                                    <div class="front">
+                                        <div class="front__bkg-photo"></div>
+                                        <div class="front__face-photo"></div>
+                                        <div class="front__text">
+                                            <h3 class="front__text-header">{{ Auth::user()->name }}</h3>
 
 
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="back">
-                                    <div class="social-media-wrapper">
-                                        <a href="#" class="social-icon"><i class="fab fa-codepen" aria-hidden="true"></i></a>
-                                        <a href="#" class="social-icon"><i class="fab fa-github-square" aria-hidden="true"></i></a>
-                                        <a href="#" class="social-icon"><i class="fab fa-linkedin-square" aria-hidden="true"></i></a>
-                                        <a href="#" class="social-icon"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                                    <div class="back">
+                                        <div class="social-media-wrapper">
+                                            <a href="#" class="social-icon"><i class="fab fa-codepen"
+                                                    aria-hidden="true"></i></a>
+                                            <a href="#" class="social-icon"><i class="fab fa-github-square"
+                                                    aria-hidden="true"></i></a>
+                                            <a href="#" class="social-icon"><i class="fab fa-linkedin-square"
+                                                    aria-hidden="true"></i></a>
+                                            <a href="#" class="social-icon"><i class="fab fa-instagram"
+                                                    aria-hidden="true"></i></a>
+                                        </div>
                                     </div>
-                                </div>
 
-                            </div>
-                    </li>
+                                </div>
+                        </li>
                         <li class="list-group-item">
-                            <p>Tel: <span style="font-weight: 2; "> {{ Auth::user()->number }} </span></p>
+                            <p>Tel: <span style="font-weight: 2; ">
+                                    {{ Auth::user()->number ?? 'Inserez votre numéro de télephone' }} </span></p>
                         </li>
                         <li class="list-group-item">
                             <p>Email: <span style="font-weight: 2;">{{ Auth::user()->email }}</span></p>
@@ -46,7 +51,9 @@
                             <p>Pharmacie: <span style="font-weight: 2;">#NomPharmacie</span></p>
                         </li> --}}
                         <li class="list-group-item">
-                            <p>Adresse: <span style="font-weight: 2;">{{ Auth::user()->adresse }}</span></p>
+                            <p>Adresse: <span
+                                    style="font-weight: 2;">{{ Auth::user()->adresse ?? 'Insérez votre Adresse' }}</span>
+                            </p>
                         </li>
                         {{-- <li class="list-group-item">
                             <p>Localisation <span style="font-weight: 2;">X/Y</span></p>
@@ -65,7 +72,7 @@
 
 
                 <div class="card lighten-100 text-dark text-center">
-                    <section class="p-5 text-center">
+                    <section class="p-7 text-center">
                         <div class="container">
                             <div class="row text-center g-4">
 
