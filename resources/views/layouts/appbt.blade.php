@@ -88,6 +88,10 @@
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
                 console.log(position.coords);
+                var lat = position.coords.latitude;
+                var long = position.coords.longitude;
+                console.log(lat);
+                console.log(long);
             });
         }
     });
