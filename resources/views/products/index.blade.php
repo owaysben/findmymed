@@ -33,134 +33,96 @@
 
             @if ($pharmacieswith->count() > 0)
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item shadow">
-                        @if ($pharmacieswith->count() > 0)
-                            @foreach ($pharmacieswith as $item)
-                                <h5>{{ $item->pharmacy->name }}</h5>
-                                <h6 class="fw-light">
-                                    Adresse: {{ $item->pharmacy->address }}</h6>
-                                <div class="float-end">
-                                    <button class="btn bt-md btn-primary justify-content-md-center" data-bs-toggle="modal"
-                                        data-bs-target="#map" id="mapBtn">
-                                        Afficher localisation
-                                    </button>
-                                    <!-- Map modal code -->
-                                    <div class="modal" id="map" tabindex="-1" w-50>
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title">Suivez le chemin!</h5>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <p>Modal body content aka el map goes here.</p>
-                                                </div>
-                                                <!--If you need buttons or whatsover, if u don't just drop the footer-->
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn btn-primary">Save changes</button>
-                                                </div>
+                    @foreach ($pharmacieswith as $item)
+                        <li class="list-group-item shadow">
+                            <h5>{{ $item->pharmacy->name }}</h5>
+                            <h6 class="fw-light">
+                                Adresse: {{ $item->pharmacy->address }}</h6>
+                            <div class="float-end">
+                                <button class="btn bt-md btn-primary justify-content-md-center" data-bs-toggle="modal"
+                                    data-bs-target="#map" id="mapBtn">
+                                    Afficher localisation
+                                </button>
+                                <!-- Map modal code -->
+                                <div class="modal" id="map" tabindex="-1" w-50>
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Suivez le chemin!</h5>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>Modal body content aka el map goes here.</p>
+                                            </div>
+                                            <!--If you need buttons or whatsover, if u don't just drop the footer-->
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
                                             </div>
                                         </div>
                                     </div>
-
-                                    <button class="btn bt-md btn-success justify-content-md-center" type="modal">
-                                        Réserver
-                                    </button>
-                                    <div id="mapb"></div>
                                 </div>
-                            @endforeach
-                        @else
-                            <p>Il n'y a pas de médicament disponible </p>
-                        @endif
 
-                    </li>
+                                <button class="btn bt-md btn-success justify-content-md-center" type="modal">
+                                    Réserver
+                                </button>
+                                <div id="mapb"></div>
+                            </div>
+                        </li>
+                    @endforeach
                 </ul>
+
                 <div class="card-body ">
                     <div class="card-link ">{{ $pharmacieswith->links() }}</div>
 
                 </div>
-                </section>
-                <div class="container justify-items-center">
-                    <div class="card" style="width: 100%;">
-
-
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item shadow">
-                                <h5>Pharmacy name(+)</h5>
-                                <h6 class="fw-light">
-                                    Adresse:@@@@@@@
-                                </h6>
-                                <div class="float-end">
-                                    <button class="btn bt-md btn-primary justify-content-md-center" type="modal">
-                                        Afficher localisation
-                                    </button>
-                                    <button class="btn bt-md btn-success justify-content-md-center" type="modal">
-                                        Commander
-                                    </button>
-                                </div>
-                            </li>
-                            <li class="list-group-item shadow">
-                                <h5>Pharmacy name(+)</h5>
-                                <h6 class="fw-light">
-                                    Adresse:@@@@@@@
-                                </h6>
-                                <div class="float-end">
-                                    <button class="btn bt-md btn-primary justify-content-md-center" type="modal">
-                                        Afficher localisation
-                                    </button>
-                                    <button class="btn bt-md btn-success justify-content-md-center" type="modal">
-                                        Commander
-                                    </button>
-                                </div>
-                            </li>
-                            <li class="list-group-item shadow">
-                                <h5>Pharmacy name(+)</h5>
-                                <h6 class="fw-light">
-                                    Adresse:@@@@@@@
-                                </h6>
-                                <div class="float-end">
-                                    <button class="btn bt-md btn-primary justify-content-md-center" type="modal">
-                                        Afficher localisation
-                                    </button>
-                                    <button class="btn bt-md btn-success justify-content-md-center" type="modal">
-                                        Commander
-                                    </button>
-                                </div>
-                            </li>
-                        </ul>
-                        <div class="card-body ">
-                            <a href="#" class="card-link">hna dji hadik tae <1....10></a>
-
-                        </div>
-                    </div>
+            @else
+                <div class="card-body ">
+                    <h4>Il n'y a pas de médicament disponible</h4>
                 </div>
-                <div class="container mx-20 my-20">
-                    {{-- <div class="card bg-light text-dark">
-                        <div class="card-body text-center">
-
-                          <h3 class="card-title mb-3">Résultats</h3>
-    <section class="bg-light">
-        <div class="list-group ">
-            @foreach ($products as $product)
-                <a href="{{ route('products.show', $product->id) }}" class="list-group-item list-group-item-action">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">{{ $product->name }}</h5>
-
-
-                    <p class="mb-1">{{ $product->description }}</p>
-                    <small class="text-muted"><b> voie</b> {{ $product->voie }}</small> <br>
-                    <small class="text-muted">forme {{ $product->forme }}</small> <br>
-                    <small class="text-muted">prix {{ $product->price }}da</small>
-                     <button class="btn btn-primary btn-md justify-content-md-end"> Afficher position </button>
-                    </div>
-                </a>
-            @endforeach
-
-
-
+            @endif
         </div>
-        {{ $products->appends($_GET)->links() }}
-    </section>
-                        </div> --}}
-                @endsection
+        <section class="bg-white text-dark p-2">
+            <div class="container px-5 mb-15">
+                <div class="d-md-flex justify-content-between align-items-center position-relative">
+                    <h3 class="mb-4 mt-4 text-secondary">Vous n'arrivez pas à trouver une pharmacie proche de vous?
+                    </h3> <br>
+
+                </div>
+                <h5 class="mb-4 fw-light "> Essayer de faire une commande chez l'une des pharmacies suivantes!</h5>
+
+            </div>
+        </section>
+        <div class="container justify-items-center">
+            <div class="card" style="width: 100%;">
+
+                @if ($pharmacieswithout->count() > 0)
+                    <ul class="list-group list-group-flush">
+                        @foreach ($pharmacieswithout as $item)
+                            <li class="list-group-item shadow">
+                                <h5>{{ $pharmacieswithout->pharmacy->name }}</h5>
+                                <h6 class="fw-light">Adresse:{{ $pharmacieswithout->pharmacy->address }}</h6>
+                                <div class="float-end">
+                                    <button class="btn bt-md btn-primary justify-content-md-center" type="modal">
+                                        Afficher localisation
+                                    </button>
+                                    <button class="btn bt-md btn-success justify-content-md-center" type="modal">
+                                        Commander
+                                    </button>
+                                </div>
+                            </li>
+                        @endforeach
+                    </ul>
+                    <div class="card-body ">
+                        <div class="card-link">{{ $pharmacieswith->links() }}</div>
+
+                    </div>
+                @else
+                    <div class="card-body ">
+                        <h4>Il n'y a pas de médicament disponible</h4>
+                    </div>
+                @endif
+            </div>
+        </div>
+        <div class="container mx-20 my-20">
+        @endsection
