@@ -21,10 +21,10 @@
                             <img src="\images\ph2.jpg" alt="med" style="max-height:45%; max-width:45%">
                         </div>
 
-                        <h3 class="title mb-3">Nom Médoc</h3>
+                        <h3 class="title mb-3">{{ $product->name }}</h3>
                         <p class="text">
-                            Forme: smth.<br>
-                            price: smth.
+                            Forme: {{ $product->forme }}<br>
+                            price: {{ $product->price }}
                         </p>
                     </div>
                 </div>
@@ -44,21 +44,22 @@
                                     Afficher localisation
                                 </button>
                                 <!-- Map modal code -->
-                                <div class="modal" id="map" tabindex="-1" w-50>
+                                <div class="modal fade" id="map" tabindex="-1" w-auto>
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title">Suivez le chemin!</h5>
+                                                <button type="button" data-dismiss="modal" aria-label="Close"><span
+                                                        aria-hidden="true">&times;</span></button>
                                             </div>
                                             <div class="modal-body">
-                                                <p>Modal body content aka el map goes here.</p>
+                                                <div id="mapl" style="width: 900px; height: 500px;"></div>
                                             </div>
                                             <!--If you need buttons or whatsover, if u don't just drop the footer-->
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Save changes</button>
-                                            </div>
+                                            <!-- <div class="modal-footer">
+                                                                                                                        <button type="button" class="btn btn-secondary"
+                                                                                                                            data-bs-dismiss="modal">Close</button>
+                                                                                                                    </div> -->
                                         </div>
                                     </div>
                                 </div>
@@ -66,7 +67,6 @@
                                 <button class="btn bt-md btn-success justify-content-md-center" type="modal">
                                     Réserver
                                 </button>
-                                <div id="mapb"></div>
                             </div>
                         </li>
                     @endforeach
@@ -114,7 +114,7 @@
                         @endforeach
                     </ul>
                     <div class="card-body ">
-                        <div class="card-link">{{ $pharmacieswith->links() }}</div>
+                        <div class="card-link">{{ $pharmacieswithout->links() }}</div>
 
                     </div>
                 @else

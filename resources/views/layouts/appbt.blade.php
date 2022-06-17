@@ -54,12 +54,12 @@
         crossorigin=""></script>
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/css/ol.css" type="text/css">
-    <style>
+    <!-- <style>
         .map {
             height: 180px;
             width: 100%;
         }
-    </style>
+    </style> -->
 
 
 
@@ -96,15 +96,23 @@
     });
 </script>
 <script>
+    $('#cordbtn').click(function() {
+
+    });
+</script>
+<script>
     $('#mapBtn').click(function() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
                 console.log(position.coords);
                 var lat = position.coords.latitude;
                 var long = position.coords.longitude;
-                console.log(lat);
-                console.log(long);
-                var map = L.map('map').setView([lat, long], 13);
+                var map = L.map('mapl').setView([lat, long], 13);
+                var tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 15,
+                    center: L.latLng(lat, long),
+                    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                }).addTo(map);
                 var marker = L.marker([lat, long]).addTo(map)
                     .bindPopup('<b>voici votre emplacement</b>').openPopup();
             });
