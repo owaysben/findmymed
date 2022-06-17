@@ -21,36 +21,57 @@
                             <img src="\images\ph2.jpg" alt="med" style="max-height:45%; max-width:45%">
                         </div>
 
-                        <h3 class="title mb-3">{{ $product->name }}</h3>
+                        <h3 class="title mb-3">Nom Médoc</h3>
                         <p class="text">
-                            Forme: {{ $product->forme }}<br>
-                            price: {{ $product->price }}
+                            Forme: smth.<br>
+                            price: smth.
                         </p>
                     </div>
                 </div>
-            </div>
         </section>
         <div class="card justify-items-center text-align-center mb-25" style="width: 100%;">
 
             @if ($pharmacieswith->count() > 0)
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item shadow">
-                        @foreach ($pharmacieswith as $item)
+                    @foreach ($pharmacieswith as $item)
+                        <li class="list-group-item shadow">
                             <h5>{{ $item->pharmacy->name }}</h5>
                             <h6 class="fw-light">
                                 Adresse: {{ $item->pharmacy->address }}</h6>
                             <div class="float-end">
-                                <button class="btn bt-md btn-primary justify-content-md-center" type="modal" id="mapBtn">
+                                <button class="btn bt-md btn-primary justify-content-md-center" data-bs-toggle="modal"
+                                    data-bs-target="#map" id="mapBtn">
                                     Afficher localisation
                                 </button>
+                                <!-- Map modal code -->
+                                <div class="modal" id="map" tabindex="-1" w-50>
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Suivez le chemin!</h5>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>Modal body content aka el map goes here.</p>
+                                            </div>
+                                            <!--If you need buttons or whatsover, if u don't just drop the footer-->
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <button class="btn bt-md btn-success justify-content-md-center" type="modal">
                                     Réserver
                                 </button>
-                                <div id="map"></div>
+                                <div id="mapb"></div>
                             </div>
-                        @endforeach
-                    </li>
+                        </li>
+                    @endforeach
                 </ul>
+
                 <div class="card-body ">
                     <div class="card-link ">{{ $pharmacieswith->links() }}</div>
 

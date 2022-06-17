@@ -8,9 +8,10 @@
                 </div>
             </div>
         </section>
-        <div class="pt-0">
+
+        <div class=>
             <!--second card-->
-            <div class="col-md">
+            <div class="container">
                 <div class="card bg-light text-dark">
                     <div class="card-body text-center">
                         <div class="h1">
@@ -20,7 +21,7 @@
                         <form action="/pharmacy/stock/update/{{ $productquantity->id }}" method="POST">
                             @csrf
                             @method('PUT')
-                            <input type="text" value="{{ $product->name }}" disabled>
+                            <input type="text" value="{{ $product->name }}">
                             <input type="number" placeholder="Quantité de médicament..."
                                 value="{{ $productquantity->quantity }}" name="quantity">
                             <button type="submit" class="btn btn-primary">confirmer</button>
