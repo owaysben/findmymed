@@ -27,7 +27,6 @@
                 .gmap_iframe {
                     height: 400px !important;
                 }
-
             </style>
         </div>
     </section>
@@ -48,30 +47,7 @@
     @endforeach
     <div id="map" class="map"></div>
 
-    {{-- <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdrWuM--TmAD1Tmtg0V2MjBzpvPy6DZyg&callback=initMap&v=weekly"
-        defer>
-    </script> --}}
-    {{-- <script>
-        function initMap() {
-            const myLatLng = {
-                lat: -25.363,
-                lng: 131.044
-            };
-            const map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 4,
-                center: myLatLng,
-            });
 
-            new google.maps.Marker({
-                position: myLatLng,
-                map,
-                title: "Hello World!",
-            });
-        }
-
-        window.initMap = initMap;
-    </script> --}}
     <script>
         var map = new ol.Map({
             target: 'map',

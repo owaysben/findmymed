@@ -35,26 +35,20 @@
             @if ($pharmacieswith->count() > 0)
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item shadow">
-                        @if ($pharmacieswith->count() > 0)
-                            @foreach ($pharmacieswith as $item)
-                                <h5>{{ $item->pharmacy->name }}</h5>
-                                <h6 class="fw-light">
-                                    Adresse: {{ $item->pharmacy->address }}</h6>
-                                <div class="float-end">
-                                    <button class="btn bt-md btn-primary justify-content-md-center" type="modal"
-                                        id="mapBtn">
-                                        Afficher localisation
-                                    </button>
-                                    <button class="btn bt-md btn-success justify-content-md-center" type="modal">
-                                        Réserver
-                                    </button>
-                                    <div id="mapb"></div>
-                                </div>
-                            @endforeach
-                        @else
-                            <p>Il n'y a pas de médicament disponible </p>
-                        @endif
-
+                        @foreach ($pharmacieswith as $item)
+                            <h5>{{ $item->pharmacy->name }}</h5>
+                            <h6 class="fw-light">
+                                Adresse: {{ $item->pharmacy->address }}</h6>
+                            <div class="float-end">
+                                <button class="btn bt-md btn-primary justify-content-md-center" type="modal" id="mapBtn">
+                                    Afficher localisation
+                                </button>
+                                <button class="btn bt-md btn-success justify-content-md-center" type="modal">
+                                    Réserver
+                                </button>
+                                <div id="mapb"></div>
+                            </div>
+                        @endforeach
                     </li>
                 </ul>
                 <div class="card-body ">
