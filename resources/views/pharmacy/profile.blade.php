@@ -41,7 +41,8 @@
                                 </div>
                         </li>
                         <li class="list-group-item">
-                            <p>Tel: <span style="font-weight: 2; "> {{ Auth::user()->number }} </span></p>
+                            <p>Tel: <span style="font-weight: 2; ">
+                                    {{ Auth::user()->number ?? 'Inserez votre numéro de télephone' }} </span></p>
                         </li>
                         <li class="list-group-item">
                             <p>Email: <span style="font-weight: 2;">{{ Auth::user()->email }}</span></p>
@@ -50,7 +51,9 @@
                             <p>Pharmacie: <span style="font-weight: 2;">#NomPharmacie</span></p>
                         </li> --}}
                         <li class="list-group-item">
-                            <p>Adresse: <span style="font-weight: 2;">{{ Auth::user()->adresse }}</span></p>
+                            <p>Adresse: <span
+                                    style="font-weight: 2;">{{ Auth::user()->adresse ?? 'Insérez votre Adresse' }}</span>
+                            </p>
                         </li>
                         {{-- <li class="list-group-item">
                             <p>Localisation <span style="font-weight: 2;">X/Y</span></p>

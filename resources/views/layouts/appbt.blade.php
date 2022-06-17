@@ -83,6 +83,15 @@
         }
     });
 </script>
+<script>
+    $('#mapBtn').click(function() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                console.log(position.coords);
+            });
+        }
+    });
+</script>
 
 
 </html>
