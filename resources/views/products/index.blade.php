@@ -46,7 +46,7 @@
                                 <button class="btn bt-md btn-success justify-content-md-center" type="modal">
                                     Réserver
                                 </button>
-                                <div id="mapb"></div>
+                                <div id="map"></div>
                             </div>
                         @endforeach
                     </li>

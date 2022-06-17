@@ -98,6 +98,9 @@
                 var long = position.coords.longitude;
                 console.log(lat);
                 console.log(long);
+                var map = L.map('map').setView([lat, long], 13);
+                var marker = L.marker([lat, long]).addTo(map)
+                    .bindPopup('<b>voici votre emplacement</b>').openPopup();
             });
         }
     });
