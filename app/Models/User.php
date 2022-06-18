@@ -62,4 +62,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Order::class);
     }
+    public function reserve()
+    {
+        return $this->hasMany(Reserve::class);
+    }
 }

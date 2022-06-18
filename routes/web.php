@@ -6,7 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductQuantityController;
 use App\Http\Controllers\Auth\RegisteredUserController;
-use App\Models\ProductQuantity;
+use App\Http\Controllers\ReserveController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +32,11 @@ Route::group(['middleware' => ['auth', 'role:user']], function () {
         ->name('user.editprofile');
     Route::put('/user/profile', [RegisteredUserController::class, 'update'])
         ->name('user.updateprofile');
+    Route::get('/reserve/create/{id}', [ReserveController::class, 'create'])->middleware('auth', 'role:user');
+    Route::post('/reserve/{id}', [ReserveController::class, 'store'])
+        ->name('store.reserve');
+    Route::get('/reserve/delete/{id}', [ReserveController::class, 'destroy'])
+        ->name('reserve.delete');
 });
 
 

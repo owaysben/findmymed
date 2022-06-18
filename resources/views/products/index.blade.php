@@ -37,7 +37,9 @@
                         <li class="list-group-item shadow">
                             <h5>{{ $item->pharmacy->name }}</h5>
                             <h6 class="fw-light">
-                                Adresse: {{ $item->pharmacy->address }}</h6>
+                                Adresse: {{ $item->pharmacy->address ?? 'adresse unavaible pour le moment' }}</h6>
+                            <h6 class="fw-light">
+                                Quantité Disponible: {{ $item->quantity ?? '' }}</h6>
                             <div class="float-end">
                                 <button class="btn bt-md btn-primary justify-content-md-center" data-bs-toggle="modal"
                                     data-bs-target="#map" id="mapBtn">
@@ -57,16 +59,19 @@
                                             </div>
                                             <!--If you need buttons or whatsover, if u don't just drop the footer-->
                                             <!-- <div class="modal-footer">
-                                                                                                                        <button type="button" class="btn btn-secondary"
-                                                                                                                            data-bs-dismiss="modal">Close</button>
-                                                                                                                    </div> -->
+                                                                                                                                                                                                <button type="button" class="btn btn-secondary"
+                                                                                                                                                                                                    data-bs-dismiss="modal">Close</button>
+                                                                                                                                                                                            </div> -->
                                         </div>
                                     </div>
                                 </div>
-
-                                <button class="btn bt-md btn-success justify-content-md-center" type="modal">
-                                    Réserver
-                                </button>
+                                <form action="/reserve/create/{{ $item->id }}" method="get"
+                                    class="justify-content-md-end ">
+                                    @csrf
+                                    <button class="btn bt-md btn-success justify-content-md-center" type="modal">
+                                        Réserver
+                                    </button>
+                                </form>
                             </div>
                         </li>
                     @endforeach
@@ -98,10 +103,10 @@
 
                 @if ($pharmacieswithout->count() > 0)
                     <ul class="list-group list-group-flush">
-                        @foreach ($pharmacieswithout as $item)
+                        @foreach ($pharmacieswithout as $without)
                             <li class="list-group-item shadow">
-                                <h5>{{ $pharmacieswithout->pharmacy->name }}</h5>
-                                <h6 class="fw-light">Adresse:{{ $pharmacieswithout->pharmacy->address }}</h6>
+                                <h5>{{ $without->pharmacy->name }}</h5>
+                                <h6 class="fw-light">Adresse:{{ $without->pharmacy->address }}</h6>
                                 <div class="float-end">
                                     <button class="btn bt-md btn-primary justify-content-md-center" type="modal">
                                         Afficher localisation
