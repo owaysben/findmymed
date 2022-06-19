@@ -42,7 +42,7 @@ class ProductQuantityController extends Controller
      */
     public function searchApi()
     {
-        $q = request()->input("q" ?? "");
+        $q = request()->input("q") ?? "";
         $products = Product::where('name', 'LIKE', '%' . $q . '%')->take(12);
         return  $products;
     }
@@ -62,12 +62,12 @@ class ProductQuantityController extends Controller
             'quantity' => 'required',
             'product' => 'required',
         ]);
+        $verif = ProductQuantity::where('product_id', $request->input('product'))->select()->first();
         $pharmacy = Pharmacy::where("user_id", auth()->user()->id)->first();
-        $verif = ProductQuantity::where('product_id', $request->input('product'))->where('pharmacy_id', $pharmacy->id)->select()->first();
 
         if (!empty($verif)) {
             ProductQuantity::where('product_id', $request->input('product'))
-                ->update([
+                ->where('pharmacy_id', $pharmacy->id)->update([
                     'quantity' => $verif->quantity + $request->input('quantity')
                 ]);
         } elseif (empty($verif)) {
@@ -118,7 +118,7 @@ class ProductQuantityController extends Controller
         $product->update([
             "quantity" => $quantity
         ]);
-        return redirect(route('pharmacy.stock'))->with('success', 'quantity mis à jour avec succés');
+        return redirect(route('pharmacy.stock'))->with('succes', 'quantity mis à jour avec succés');
     }
 
     /**
@@ -132,7 +132,7 @@ class ProductQuantityController extends Controller
         $med = ProductQuantity::where('id', $product_id)->first();
         if (auth()->user()->id == $med->pharmacy_id) {
             $med->delete();
-            return redirect(route('pharmacy.stock'))->with('success', 'quantity supprimé avec succés');
+            return redirect(route('pharmacy.stock'))->with('succes', 'quantity supprimé avec succés');
         }
     }
 }

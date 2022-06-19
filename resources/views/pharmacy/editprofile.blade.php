@@ -15,13 +15,12 @@
                     </div>
                     <div class="form-group">
                         <label for="number">Number</label>
-                        <input type="number" class="form-control" name="number" id="number" value="{{ $user->number }} "
+                        <input type="number" class="form-control" name="number" id="number" value="{{ $user->number }}"
                             required>
                     </div>
                     <div class="form-group">
                         <label for="adresse">Adresse</label>
-                        <input type="text" class="form-control" name="adresse" id="adresse" value="{{ $user->adresse }}"
-                            required>
+                        <input type="text" class="form-control" name="adresse" id="adresse" value="{{ $user->adresse }}">
                     </div>
                     <div class="form-group">
                         <label for="image">Changer votre photo de profile</label>

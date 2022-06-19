@@ -94,7 +94,7 @@
                                                 </div>
                                                 <h5>Voir les réservations</h5>
                                                 <p>Suivez les réservations faites par vos clients potentiels.</p>
-                                                <a href="/pharmacy/reservation" class="btn btn-primary">Consulter</a>
+                                                <a href="#" class="btn btn-primary">Consulter</a>
                                             </div>
                                         </div>
                                         <div class="carousel-item" data-bs-interval="2000">
@@ -106,7 +106,7 @@
                                                 </div>
                                                 <h5>Gérer les commandes</h5>
                                                 <p>Consultez les commandes de vos clients.</p>
-                                                <a href="/pharmacy/commande" class="btn btn-primary">Consulter</a>
+                                                <a href="#" class="btn btn-primary">Consulter</a>
                                             </div>
                                         </div>
                                     </div>

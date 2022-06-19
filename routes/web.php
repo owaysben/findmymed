@@ -6,9 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductQuantityController;
 use App\Http\Controllers\Auth\RegisteredUserController;
-use App\Http\Controllers\OrderItemController;
-use App\Http\Controllers\ReserveController;
-use App\Models\OrderItem;
+use App\Models\ProductQuantity;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,22 +24,14 @@ Route::get('/', [HomeController::class, 'index'])->name('house');
 //->middleware('auth')
 //route for client
 Route::group(['middleware' => ['auth', 'role:user']], function () {
+    Route::get('/user/orders', [DashboardController::class, 'orders'])
+        ->name('user.orders');
     Route::get('/user/profile', [DashboardController::class, 'profile'])
         ->name('user.profile');
     Route::get('/user/profile/edit', [RegisteredUserController::class, 'edit'])
         ->name('user.editprofile');
     Route::put('/user/profile', [RegisteredUserController::class, 'update'])
         ->name('user.updateprofile');
-    Route::get('/reserve/create/{id}', [ReserveController::class, 'create'])->middleware('auth', 'role:user');
-    Route::post('/reserve/{id}', [ReserveController::class, 'store'])
-        ->name('store.reserve');
-    Route::get('/reserve/delete/{id}', [ReserveController::class, 'destroy'])
-        ->name('reserve.delete');
-    Route::get('/commande/create/{id}', [OrderItemController::class, 'create'])->middleware('auth', 'role:user');
-    Route::post('/commande/{id}', [OrderItemController::class, 'store'])
-        ->name('store.commande');
-    Route::get('/commande/delete/{id}', [OderItemController::class, 'destroy'])
-        ->name('commande.delete');
 });
 
 
@@ -65,12 +55,6 @@ Route::group(['middleware' => ['auth', 'role:pharmacy']], function () {
         ->name('pharmacy.editprofile');
     Route::put('/pharmacy/profile', [RegisteredUserController::class, 'update'])
         ->name('pharmacy.updateprofile');
-    Route::get('/pharmacy/reservation', [ReserveController::class, 'show'])
-        ->name('pharmacy.reservation');
-    Route::get('/pharmacy/commande', [OrderItemController::class, 'show'])
-        ->name('pharmacy.commande');
-    Route::get('/pharmacy/commande/accepte/{id}', [OrderItemController::class, 'accepte']);
-    Route::get('/pharmacy/commande/refuse/{id}', [OrderItemController::class, 'refuse']);
 });
 
 Route::resource("products", ProductController::class);
