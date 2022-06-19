@@ -28,35 +28,55 @@
                         </p>
                     </div>
                 </div>
-            </div>
         </section>
         <div class="card justify-items-center text-align-center mb-25" style="width: 100%;">
 
             @if ($pharmacieswith->count() > 0)
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item shadow">
-                        @if ($pharmacieswith->count() > 0)
-                            @foreach ($pharmacieswith as $item)
-                                <h5>{{ $item->pharmacy->name }}</h5>
-                                <h6 class="fw-light">
-                                    Adresse: {{ $item->pharmacy->address }}</h6>
-                                <div class="float-end">
-                                    <button class="btn bt-md btn-primary justify-content-md-center" type="modal"
-                                        id="mapBtn">
-                                        Afficher localisation
-                                    </button>
+                    @foreach ($pharmacieswith as $item)
+                        <li class="list-group-item shadow">
+                            <h5>{{ $item->pharmacy->name }}</h5>
+                            <h6 class="fw-light">
+                                Adresse: {{ $item->pharmacy->address ?? 'adresse unavaible pour le moment' }}</h6>
+                            <h6 class="fw-light">
+                                Quantité Disponible: {{ $item->quantity ?? '' }}</h6>
+                            <div class="float-end">
+                                <button class="btn bt-md btn-primary justify-content-md-center" data-bs-toggle="modal"
+                                    data-bs-target="#map" id="mapBtn">
+                                    Afficher localisation
+                                </button>
+                                <!-- Map modal code -->
+                                <div class="modal fade" id="map" tabindex="-1" w-auto>
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Suivez le chemin!</h5>
+                                                <button type="button" data-dismiss="modal" aria-label="Close"><span
+                                                        aria-hidden="true">&times;</span></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div id="mapl" style="width: 900px; height: 500px;"></div>
+                                            </div>
+                                            <!--If you need buttons or whatsover, if u don't just drop the footer-->
+                                            <!-- <div class="modal-footer">
+                                                                                                                                                                                                        <button type="button" class="btn btn-secondary"
+                                                                                                                                                                                                            data-bs-dismiss="modal">Close</button>
+                                                                                                                                                                                                    </div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <form action="/reserve/create/{{ $item->id }}" method="get"
+                                    class="justify-content-md-end ">
+                                    @csrf
                                     <button class="btn bt-md btn-success justify-content-md-center" type="modal">
                                         Réserver
                                     </button>
-                                    <div id="mapb"></div>
-                                </div>
-                            @endforeach
-                        @else
-                            <p>Il n'y a pas de médicament disponible </p>
-                        @endif
-
-                    </li>
+                                </form>
+                            </div>
+                        </li>
+                    @endforeach
                 </ul>
+
                 <div class="card-body ">
                     <div class="card-link ">{{ $pharmacieswith->links() }}</div>
 
@@ -83,23 +103,25 @@
 
                 @if ($pharmacieswithout->count() > 0)
                     <ul class="list-group list-group-flush">
-                        @foreach ($pharmacieswithout as $item)
+                        @foreach ($pharmacieswithout as $without)
                             <li class="list-group-item shadow">
-                                <h5>{{ $pharmacieswithout->pharmacy->name }}</h5>
-                                <h6 class="fw-light">Adresse:{{ $pharmacieswithout->pharmacy->address }}</h6>
+                                <h5>{{ $without->pharmacy->name }}</h5>
+                                <h6 class="fw-light">Adresse:{{ $without->pharmacy->address }}</h6>
                                 <div class="float-end">
                                     <button class="btn bt-md btn-primary justify-content-md-center" type="modal">
                                         Afficher localisation
                                     </button>
-                                    <button class="btn bt-md btn-success justify-content-md-center" type="modal">
-                                        Commander
-                                    </button>
+                                    <form action="/commande/create/{{ $without->id }}" method="get">
+                                        <button class="btn bt-md btn-success justify-content-md-center" type="modal">
+                                            Commander
+                                        </button>
+                                    </form>
                                 </div>
                             </li>
                         @endforeach
                     </ul>
                     <div class="card-body ">
-                        <div class="card-link">{{ $pharmacieswith->links() }}</div>
+                        <div class="card-link">{{ $pharmacieswithout->links() }}</div>
 
                     </div>
                 @else

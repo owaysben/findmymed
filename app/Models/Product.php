@@ -23,14 +23,18 @@ class Product extends Model
     ];
 
     protected $with = [
-        // 'quantities'
+        'quantities'
     ];
     public function quantities()
     {
         return $this->hasMany(ProductQuantity::class);
     }
-    public function items()
+    public function orderitem()
     {
-        return $this->belongsToMany(OrderItem::class);
+        return $this->hasMany(OrderItem::class);
+    }
+    public function reserve()
+    {
+        return $this->hasMany(Reserve::class);
     }
 }

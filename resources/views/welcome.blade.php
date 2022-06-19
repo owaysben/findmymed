@@ -88,6 +88,7 @@
     <!--Search Engine-->
     <section class="bg-primary text-light p-5">
         <div class="container">
+            @include('partials.flashmessages')
             <div class="d-md-flex justify-content-between align-items-center">
                 <h3 class="mb-3">Commencez votre recherche</h3>
                 <div class="input-group news-input">

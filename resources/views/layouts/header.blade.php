@@ -46,11 +46,20 @@
                             @endrole
                             @role('pharmacy')
                                 <a class="dropdown-item" href="{{ route('pharmacy.profile') }}">
-                                    {{ __('Mon profile') }}
+                                    {{ __('Mon Profile') }}
+                                </a>
+                                <a class="dropdown-item" href="{{ route('pharmacy.stock') }}">
+                                    {{ __('Mon Stock') }}
+                                </a>
+                                <a class="dropdown-item" href="{{ route('pharmacy.reservation') }}">
+                                    {{ __('Les Reservations') }}
+                                </a>
+                                <a class="dropdown-item" href="{{ route('pharmacy.commande') }}">
+                                    {{ __('Les Commandes') }}
                                 </a>
                             @endrole
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                         document.getElementById('logout-form').submit();">
+                                                                 document.getElementById('logout-form').submit();">
                                 {{ __('Deconnecter') }}
                             </a>
 
