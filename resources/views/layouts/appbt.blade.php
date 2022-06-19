@@ -120,6 +120,20 @@
         }
     });
 </script>
-
+<script>
+    var openProductPage = function(product) {
+        console.log("getting location");
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition((position) => {
+                window.location.href = "/products/" + product + "?lat=" + position.coords.latitude +
+                    "&long=" + position.coords.longitude;
+            }, (er) => {
+                alert(er);
+            });
+        } else {
+            alert("Sorry - your browser doesn't support geolocation!");
+        }
+    };
+</script>
 
 </html>
