@@ -206,9 +206,9 @@
     </section>
 
     <!--Question accordian-->
-    <section class="p-5 bg-primary" id="questions">
-        <div class="container">
-            <h2 class="text-center mb-4">Questions fréquemment posées</h2>
+    <section class="p-5 bg-light" id="questions">
+        <div class="container bg-light shadow">
+            <h2 class="text-center mb-4 text-dark">Questions fréquemment posées</h2>
             <div class="accordion accordion-flush" id="questions">
 
                 <!--item01-->
@@ -430,23 +430,23 @@
             </div>
     </section> --}}
 
-    <!--Contact & Map-->
-    <section class="p-5">
-        <div class="container">
+    <!--Contact-->
+    <section class="p-5 bg-primary">
+        <div class="container bg-primary">
             <div class="row g-4">
-                <div class="col-md">
-                    <h2 class="text-center mb-4">Contact FMM</h2>
-                    <ul class="list-group list-group-flush lead">
-                        <li class="list-group-item">
-                            <span class="fw-bold"> Adresse: </span>
+                <div class="col-md bg-primary">
+                    <h2 class="text-center text-light mb-4">Contact FMM</h2>
+                    <ul class="list-group list-group-flush lead bg-primary">
+                        <li class="list-group-item bg-primary text-light ">
+                            <span class="fw-bold text-light "> Adresse: </span>
                             Université Saad Dahleb Blida 01, Soumaa route
                         </li>
-                        <li class="list-group-item">
-                            <span class="fw-bold">Téléphone: </span>
+                        <li class="list-group-item bg-primary text-light">
+                            <span class="fw-bold text-light">Téléphone: </span>
                             +213 521472189
                         </li>
-                        <li class="list-group-item">
-                            <span class="fw-bold"> Email: </span>
+                        <li class="list-group-item bg-primary text-light">
+                            <span class="fw-bold text-light"> Email: </span>
                             FindMyMed@frontendbc.test
                         </li>
                     </ul>

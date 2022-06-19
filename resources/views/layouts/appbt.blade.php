@@ -73,7 +73,7 @@
             @include('layouts.header')
         </header>
 
-        <main class="mb-5">
+        <main class="">
             @yield('content')
         </main>
 

@@ -20,7 +20,20 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    /**public function index(Request $request)
+    {
+        $q = request()->input("q") ?? "";
+        $product = Product::where('name', $q)->first();
+        if (empty($product)) {
+            return redirect(route('house'))->with('warning', 'Le nom de médicament est invalide');
+        } else {
+            $pharmacieswith = ProductQuantity::where('product_id', $product->id)->where('quantity', '>', 0)->paginate(3, ['*'], 'withPagination');
+            $pharmacieswithout = ProductQuantity::where('product_id', $product->id)->where('quantity', '=', 0)->paginate(3, ['*'], 'withoutPagination');
+
+            return view('products.index', compact('product', 'pharmacieswith', 'pharmacieswithout'));
+        }
+    }**/
+public function index(Request $request)
     {
         $q = request()->input("q") ?? "";
         $product = Product::where('name', $q)->first();
@@ -33,6 +46,10 @@ class ProductController extends Controller
             return view('products.index', compact('product', 'pharmacieswith', 'pharmacieswithout'));
         }
     }
+
+
+
+
     /**
      * Show the form for creating a new resource.
      *
