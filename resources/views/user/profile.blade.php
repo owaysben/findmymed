@@ -59,7 +59,7 @@
             </div> <!-- End Col 1 -->
             <!-- Second column - for small and extra-small screens, will use whatever # cols is available -->
             <div class="col-md-8 col-sm-* col-xs-*">
-
+                @include('partials.flashmessages')
                 <div class="card lighten-100 text-dark text-center">
                     <section class="p-3 text-center">
                         <div class="container">
@@ -71,61 +71,65 @@
 
                                     <h3 class="card-title">Activité récente</h3>
                                 </div>
-                                <table class="table table-light justify-content-between align-items-center bg-white shadow">
-                                    <thead class="table-dark text-light">
-                                        <tr>
-                                            <th scope="row">Médicaments</th>
-                                            <td colspan="2">Service</td>
-                                            <td>Date</td>
-                                            <td>Temps</td>
-                                            <td>Quantité</td>
-                                            <td colspan="2">
-
-                                            </td>
-
-                                        </tr>
-                                    </thead>
-
-                                    <tbody>
-                                        @foreach ($data as $item)
+                                @if ($data->count() == 0 && $commandes->count() == 0)
+                                    <div class="container col-md-12 my-5">
+                                        <h4>Votre panier est vide pour le moment.</h4>
+                                    </div>
+                                @else
+                                    <table
+                                        class="table table-light justify-content-between align-items-center bg-white shadow">
+                                        <thead class="table-dark text-light">
                                             <tr>
-                                                <th scope="row">{{ $item->product->name }}</th>
-                                                <td colspan="2">{{ $item->type }}</td>
-                                                <td>{{ $item->created_at->toDateString() }}</td>
-                                                <td class="fw-5">23:30</td>
-                                                <td>{{ $item->quantity }}</td>
-                                                <td>
-                                                    <form action="/reserve/delete/{{ $item->id }}" method="GET">
-                                                        @csrf
-                                                        <button type="submit"
-                                                            class="btn btn-primary btn-md justify-content-md-end">
-                                                            <i class="bi bi-x-circle"></i>
-                                                        </button>
-                                                    </form>
-                                                </td>
+                                                <th scope="row">Médicaments</th>
+                                                <td colspan="2">Service</td>
+                                                <td>Date</td>
+                                                <td>Status</td>
+                                                <td>Quantité</td>
+                                                <td colspan="2">Action</td>
+
                                             </tr>
-                                        @endforeach
+                                        </thead>
 
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td colspan="2">Commande</td>
-                                            <td>02/02/2020</td>
-                                            <td class="fw-5">23:30</td>
-                                            <td>2</td>
-                                            <td>
-                                                <button class="btn btn-primary btn-md justify-content-md-end">
-                                                    <i class="bi bi-x-circle"></i>
-                                                </button>
-
-                                            </td>
-                                        </tr>
-
-
-
-
-                                    </tbody>
-                                </table>
-
+                                        <tbody>
+                                            @foreach ($data as $item)
+                                                <tr>
+                                                    <th scope="row">{{ $item->product->name }}</th>
+                                                    <td colspan="2">{{ $item->type }}</td>
+                                                    <td>{{ $item->created_at->toDateString() }}</td>
+                                                    <td class="fw-5">-</td>
+                                                    <td>{{ $item->quantity }}</td>
+                                                    <td>
+                                                        <form action="/reserve/delete/{{ $item->id }}" method="GET">
+                                                            @csrf
+                                                            <button type="submit"
+                                                                class="btn btn-primary btn-md justify-content-md-end">
+                                                                <i class="bi bi-x-circle"></i>
+                                                            </button>
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                            @foreach ($commandes as $commande)
+                                                <tr>
+                                                    <th scope="row">{{ $commande->product->name }}</th>
+                                                    <td colspan="2">{{ $commande->type }}</td>
+                                                    <td>{{ $commande->updated_at->toDateString() }}</td>
+                                                    <td class="fw-5">{{ $commande->status }}</td>
+                                                    <td>{{ $commande->quantity }}</td>
+                                                    <td>
+                                                        <form action="/commande/delete/{{ $commande->id }}" method="GET">
+                                                            @csrf
+                                                            <button class="btn btn-primary btn-md justify-content-md-end"
+                                                                type="submit">
+                                                                <i class="bi bi-x-circle"></i>
+                                                            </button>
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                @endif
                             </div>
                     </section>
 

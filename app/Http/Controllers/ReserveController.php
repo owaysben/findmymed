@@ -66,9 +66,10 @@ class ReserveController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $reservations = Reserve::where('pharmacy_id', auth()->user()->id);
+        return view('pharmacy.reservation', compact('reservations'));
     }
 
     /**

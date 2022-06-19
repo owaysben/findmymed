@@ -58,9 +58,9 @@ class User extends Authenticatable
         return $this->hasOne(Pharmacy::class);
     }
 
-    public function orders()
+    public function orderitem()
     {
-        return $this->hasMany(Order::class);
+        return $this->hasMany(OrderItem::class);
     }
     public function reserve()
     {

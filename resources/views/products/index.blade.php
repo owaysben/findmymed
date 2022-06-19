@@ -59,9 +59,9 @@
                                             </div>
                                             <!--If you need buttons or whatsover, if u don't just drop the footer-->
                                             <!-- <div class="modal-footer">
-                                                                                                                                                                                                <button type="button" class="btn btn-secondary"
-                                                                                                                                                                                                    data-bs-dismiss="modal">Close</button>
-                                                                                                                                                                                            </div> -->
+                                                                                                                                                                                                        <button type="button" class="btn btn-secondary"
+                                                                                                                                                                                                            data-bs-dismiss="modal">Close</button>
+                                                                                                                                                                                                    </div> -->
                                         </div>
                                     </div>
                                 </div>
@@ -111,9 +111,11 @@
                                     <button class="btn bt-md btn-primary justify-content-md-center" type="modal">
                                         Afficher localisation
                                     </button>
-                                    <button class="btn bt-md btn-success justify-content-md-center" type="modal">
-                                        Commander
-                                    </button>
+                                    <form action="/commande/create/{{ $without->id }}" method="get">
+                                        <button class="btn bt-md btn-success justify-content-md-center" type="modal">
+                                            Commander
+                                        </button>
+                                    </form>
                                 </div>
                             </li>
                         @endforeach

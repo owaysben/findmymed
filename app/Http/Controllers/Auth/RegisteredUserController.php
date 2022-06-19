@@ -51,7 +51,7 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
         if ($user->hasRole('pharmacy')) {
-            $pharmacy = Pharmacy::firstOrCreate([
+            Pharmacy::firstOrCreate([
                 'name' => $user->name,
                 'user_id' => auth()->user()->id
             ]);
