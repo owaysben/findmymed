@@ -42,7 +42,7 @@
                                 Quantité Disponible: {{ $item->quantity ?? '' }}</h6>
                             <div class="float-end">
                                 <button class="btn bt-md btn-primary justify-content-md-center" data-bs-toggle="modal"
-                                    data-bs-target="#map" id="mapBtn">
+                                    data-bs-target="#map" id="mapBtn" onclick="openProductPage({{ $product->id }})">
                                     Afficher localisation
                                 </button>
                                 <!-- Map modal code -->
@@ -59,9 +59,9 @@
                                             </div>
                                             <!--If you need buttons or whatsover, if u don't just drop the footer-->
                                             <!-- <div class="modal-footer">
-                                                                                                                                                                                                        <button type="button" class="btn btn-secondary"
-                                                                                                                                                                                                            data-bs-dismiss="modal">Close</button>
-                                                                                                                                                                                                    </div> -->
+                                                                                                                                                                                                            <button type="button" class="btn btn-secondary"
+                                                                                                                                                                                                                data-bs-dismiss="modal">Close</button>
+                                                                                                                                                                                                        </div> -->
                                         </div>
                                     </div>
                                 </div>
